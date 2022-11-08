@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.*;
 import java.util.stream.Stream;
 
-public class Main {
+public class NoGuiMain {
 
     public static void main(String[] args) throws IOException {
 
@@ -34,15 +34,16 @@ public class Main {
                 .limit(cores)
                 .forEach(x -> futures.add(executor.submit(search)));
 
+        futures.forEach(f -> {
+            try {
+                f.get();
+            } catch (InterruptedException | ExecutionException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
         try {
             executor.shutdown();
-            futures.forEach(f -> {
-                try {
-                    f.get();
-                } catch (InterruptedException | ExecutionException e) {
-                    throw new RuntimeException(e);
-                }
-            });
         } finally {
             executor.shutdownNow();
         }

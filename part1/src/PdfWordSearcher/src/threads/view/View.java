@@ -3,7 +3,7 @@ package threads.view;
 import threads.controller.Controller;
 
 public class View {
-    private GUI gui;
+    private final GUI gui;
 
     public View(Controller controller){
         gui = new GUI(controller);

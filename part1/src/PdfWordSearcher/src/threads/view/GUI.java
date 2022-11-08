@@ -25,7 +25,7 @@ public class GUI extends JFrame  implements ActionListener {
 
     public GUI(Controller controller){
         setTitle("PDF Searcher");
-        setSize(300,240);
+        setSize(400,240);
         this.controller = controller;
         data = new JTextArea(3, 20);
         data.setEditable(false);
@@ -95,6 +95,8 @@ public class GUI extends JFrame  implements ActionListener {
                 start.setEnabled(true);
             }
         } else if (src == start){
+            data.setText("");
+            controller.resetData();
             controller.notifyStarted(selectedDirPath, "Ricci");
             resume.setEnabled(true);
             pause.setEnabled(true);
@@ -126,6 +128,7 @@ public class GUI extends JFrame  implements ActionListener {
     public void resetState() {
         SwingUtilities.invokeLater(()-> {
             start.setEnabled(true);
+            pause.setEnabled(false);
             resume.setEnabled(false);
         });
     }

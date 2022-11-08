@@ -39,6 +39,7 @@ public class Model {
                     sd.getMatchingPdf()
                 );
             }
+            this.view.resetState();
         }).start();
     }
 }

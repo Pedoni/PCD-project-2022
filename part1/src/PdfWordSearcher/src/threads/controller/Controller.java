@@ -6,7 +6,7 @@ import threads.view.View;
 
 public class Controller {
 
-    private final SharedData sd;
+    private SharedData sd;
     private View view;
 
     public Controller(SharedData sd) {
@@ -30,5 +30,9 @@ public class Controller {
 
     public synchronized void notifyResumed() {
         this.sd.resumeSearch();
+    }
+
+    public synchronized void resetData() {
+        this.sd = new SharedData();
     }
 }
