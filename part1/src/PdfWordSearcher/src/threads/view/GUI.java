@@ -1,84 +1,138 @@
 package threads.view;
 
-import threads.model.*;
+import threads.controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.File;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame  implements ActionListener {
 
-    private final CentralPanel centralPanel;
-    private static final int height = 500;
-    private static final int width = 500;
-    private final String path;
-    private final JTextField textField;
-    private final SharedData sd;
 
-    public GUI(String path, SharedData sd){
-        this.path = path;
-        this.sd = sd;
-        setTitle("PDF Word Searcher");
-        setSize(width, height);
-        setResizable(false);
-        centralPanel = new CentralPanel(width, height, sd);
-        centralPanel.setVisible(false);
-        JButton searchWordButton = new JButton("Search word");
-        this.textField = new JTextField();
-        JPanel northPanel = new JPanel();
-        northPanel.setLayout(new GridLayout(1, 2));
-        northPanel.add(textField);
-        northPanel.add(searchWordButton);
-        getContentPane().add(northPanel, BorderLayout.NORTH);
+    private final JButton start;
+    private final JButton pause;
+    private final JButton resume;
+    private final JButton chooseDir;
+    private final JTextField selectedDir;
+    private String selectedDirPath;
+    private final JTextArea data;
 
-        JPanel southPanel = new JPanel();
-        southPanel.setLayout(new GridLayout(1, 1));
-        JButton exitButton = new JButton("Exit");
-        exitButton.addActionListener(e -> System.exit(0));
-        southPanel.add(exitButton);
-        getContentPane().add(southPanel, BorderLayout.SOUTH);
+    private final Controller controller;
 
-        searchWordButton.addActionListener(a -> initSearch(this.path));
+    public GUI(Controller controller){
+        setTitle("PDF Searcher");
+        setSize(300,240);
+        this.controller = controller;
+        data = new JTextArea(3, 20);
+        data.setEditable(false);
+        data.setText("");
+        selectedDir = new JTextField();
+        selectedDir.setEditable(false);
+        chooseDir = new JButton("Select directory");
+        start = new JButton("Start");
+        start.setEnabled(false);
+        pause = new JButton("Pause");
+        pause.setEnabled(false);
+        resume = new JButton("Resume");
+        resume.setEnabled(false);
 
-        getContentPane().add(centralPanel, BorderLayout.CENTER);
-        this.setVisible(true);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        getRootPane().setDefaultButton(searchWordButton);
-        setLocationRelativeTo(null);
-    }
+        Container cp = getContentPane();
+        JPanel panel = new JPanel();
 
-    private void initSearch(String path) {
-        if(!textField.getText().isEmpty()){
-            centralPanel.setVisible(true);
-            new Master(this.sd, path).start();
-            final int cores = Runtime.getRuntime().availableProcessors();
-            for(int i  = 0; i < cores; i++){
-                new Worker(i, sd,textField.getText()).start();
+        Box p0 = new Box(BoxLayout.X_AXIS);
+        p0.add(chooseDir);
+        p0.add(start);
+        p0.add(pause);
+        p0.add(resume);
+        Box p1a = new Box(BoxLayout.X_AXIS);
+        p1a.add(selectedDir);
+        Box p1 = new Box(BoxLayout.X_AXIS);
+        p1.add(data);
+        Box p2 = new Box(BoxLayout.Y_AXIS);
+        p2.add(p0);
+        p2.add(Box.createVerticalStrut(10));
+        p2.add(p1a);
+        p2.add(Box.createVerticalStrut(10));
+        p2.add(p1);
+        panel.add(p2);
+        cp.add(panel);
+
+        addWindowListener(new WindowAdapter(){
+            public void windowClosing(WindowEvent ev){
+                System.exit(-1);
             }
+            public void windowClosed(WindowEvent ev){
+                System.exit(-1);
+            }
+        });
 
-            new Thread(() -> {
-                while(true) {
-                    display(sd);
-                    try {
-                        Thread.sleep(50);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }).start();
+        chooseDir.addActionListener(this);
+        start.addActionListener(this);
+        pause.addActionListener(this);
+        resume.addActionListener(this);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        Object src = e.getSource();
+        if (src == chooseDir) {
+            JFileChooser fileChooser = new JFileChooser();
+
+            fileChooser.setCurrentDirectory(new File("."));
+            fileChooser.setDialogTitle("Select the directory");
+            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+            fileChooser.setAcceptAllFileFilterUsed(false);
+
+            int code = fileChooser.showOpenDialog(this);
+            if (code == JFileChooser.APPROVE_OPTION) {
+                File f = fileChooser.getSelectedFile();
+                selectedDirPath = f.getAbsolutePath();
+                selectedDir.setText("..." + selectedDirPath.substring(selectedDirPath.length() - 20));
+                start.setEnabled(true);
+            }
+        } else if (src == start){
+            controller.notifyStarted(selectedDirPath, "Ricci");
+            resume.setEnabled(true);
+            pause.setEnabled(true);
+            start.setEnabled(false);
+        } else if (src == pause){
+            controller.notifyPaused();
+            pause.setEnabled(false);
+            resume.setEnabled(true);
+        } else if (src == resume){
+            controller.notifyResumed();
+            pause.setEnabled(true);
+            resume.setEnabled(false);
         }
     }
 
-    public void display(SharedData sd){
-        try {
-            SwingUtilities.invokeAndWait(() -> {
-                centralPanel.display(sd.getFoundPdf(), sd.getAnalyzedPdf(), sd.getMatchingPdf());
-                repaint();
-            });
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
+    public void updateData(int found, int analyzed, int matching) {
+        SwingUtilities.invokeLater(()-> {
+            String text =
+                "Analyzing... \n" +
+                "---------------------\n" +
+                "Total PDFs: " + found + "\n" +
+                "Analyzed PDFs: " + analyzed + "\n" +
+                "Matching PDFs: " + matching + "\n" +
+                "---------------------\n";
+            data.setText(text);
+        });
     }
 
+    public void resetState() {
+        SwingUtilities.invokeLater(()-> {
+            start.setEnabled(true);
+            resume.setEnabled(false);
+        });
+    }
+
+    public void display() {
+        SwingUtilities.invokeLater(() -> {
+            this.setVisible(true);
+        });
+    }
 }

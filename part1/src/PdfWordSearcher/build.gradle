@@ -19,4 +19,5 @@ dependencies {
     implementation 'junit:junit:4.13.2'
     implementation 'io.vertx:vertx-core:4.3.4'
     implementation 'org.apache.pdfbox:pdfbox:2.0.27'
+    implementation 'com.github.javaparser:javaparser-symbol-solver-core:3.24.2'
 }

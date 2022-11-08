@@ -10,6 +10,9 @@ public class SharedData {
     private final ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
     private boolean masterRunning = true;
     private boolean searchPaused = false;
+    private final int nWorkers = Runtime.getRuntime().availableProcessors();
+    private int closedWorkers = 0;
+
 
     public synchronized int getMatchingPdf() {
         return this.matchingPdf;
@@ -44,6 +47,18 @@ public class SharedData {
 
     public synchronized boolean isQueueEmpty() {
         return this.queue.isEmpty();
+    }
+
+    public synchronized int getWorkersNumber() {
+        return this.nWorkers;
+    }
+
+    public synchronized boolean areAllWorkersFinished() {
+        return this.closedWorkers == this.nWorkers;
+    }
+
+    public synchronized void incrementClosedWorkers() {
+        this.closedWorkers += 1;
     }
 
     public synchronized void incrementFoundPdf() {

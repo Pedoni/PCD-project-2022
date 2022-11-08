@@ -26,6 +26,7 @@ public class Worker extends Thread {
                 throw new RuntimeException(e);
             }
         }
+        sd.incrementClosedWorkers();
     }
 
     private void searchWordInPdf(SharedData sd) throws IOException {
@@ -37,10 +38,10 @@ public class Worker extends Thread {
             String text = pdfStripper.getText(document);
             if(text.contains(this.word)) {
                 sd.incrementOccurrences();
-                System.out.println("TOTAL OCCURRENCES: " + sd.getMatchingPdf());
+                //System.out.println("TOTAL OCCURRENCES: " + sd.getMatchingPdf());
             }
             sd.incrementAnalyzedPdf();
-            System.out.println("ANALYZED PDFs: " + sd.getAnalyzedPdf());
+            //System.out.println("ANALYZED PDFs: " + sd.getAnalyzedPdf());
             document.close();
         }
     }
