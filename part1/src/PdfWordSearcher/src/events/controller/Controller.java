@@ -1,8 +1,10 @@
-package threads.controller;
+package events.controller;
 
-import threads.model.Model;
-import threads.model.SharedData;
-import threads.view.View;
+import events.model.*;
+import events.view.View;
+import io.vertx.core.Future;
+import io.vertx.core.Vertx;
+import events.model.UpdateGui;
 
 public class Controller {
 
@@ -21,7 +23,10 @@ public class Controller {
         String path,
         String word
     ) {
-        new Model(path, word, sd, view).start();
+        new UpdateGui(sd, view).start();
+        final Vertx vertx = Vertx.vertx();
+        vertx.deployVerticle(new AnalyzerAgent(sd, path));
+        vertx.deployVerticle(new SearcherAgent(sd, word));
     }
 
     public void notifyPaused() {

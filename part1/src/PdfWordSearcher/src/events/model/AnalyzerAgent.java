@@ -1,33 +1,32 @@
-package tasks;
+package events.model;
 
-import java.io.File;
+import io.vertx.core.AbstractVerticle;
+import io.vertx.core.eventbus.EventBus;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.concurrent.Callable;
 import java.util.stream.Stream;
 
-public class AnalyzePdfTask implements Callable<Void> {
+public class AnalyzerAgent extends AbstractVerticle {
 
     private final SharedData sd;
     private final String path;
 
-    public AnalyzePdfTask(SharedData sd, String path) {
+    public AnalyzerAgent(SharedData sd, String path) {
         this.sd = sd;
         this.path = path;
     }
 
     @Override
-    public Void call() {
+    public void start() {
+        EventBus eb = getVertx().eventBus();
         try (Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
             walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
                 if (f.toString().endsWith("pdf")) {
                     sd.incrementFoundPdf();
-                    sd.addToQueue(f.toString());
+                    eb.publish( "queue", f.toString());
                 }
             });
         } catch (IOException e){
@@ -35,6 +34,11 @@ public class AnalyzePdfTask implements Callable<Void> {
         }
         System.out.println("Master finished");
         sd.stopMaster();
-        return null;
+        try {
+            vertx.undeploy(this.deploymentID());
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
+
 }

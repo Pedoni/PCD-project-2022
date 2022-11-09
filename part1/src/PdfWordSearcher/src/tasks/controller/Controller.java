@@ -1,8 +1,9 @@
-package threads.controller;
+package tasks.controller;
 
-import threads.model.Model;
-import threads.model.SharedData;
-import threads.view.View;
+import tasks.model.Model;
+import tasks.model.SharedData;
+import tasks.model.UpdateGui;
+import tasks.view.View;
 
 public class Controller {
 
@@ -21,6 +22,7 @@ public class Controller {
         String path,
         String word
     ) {
+        new UpdateGui(sd, view).start();
         new Model(path, word, sd, view).start();
     }
 

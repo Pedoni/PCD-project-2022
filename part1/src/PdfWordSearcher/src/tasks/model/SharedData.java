@@ -1,15 +1,15 @@
-package tasks;
-
-import java.util.concurrent.ConcurrentLinkedQueue;
+package tasks.model;
 
 public class SharedData {
 
     private int foundPdf = 0;
     private int analyzedPdf = 0;
     private int matchingPdf = 0;
-    private final ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
     private boolean masterRunning = true;
     private boolean searchPaused = false;
+    private final int nWorkers = Runtime.getRuntime().availableProcessors();
+    private boolean isAnalysisClosed = false;
+
 
     public synchronized int getMatchingPdf() {
         return this.matchingPdf;
@@ -19,24 +19,20 @@ public class SharedData {
         this.matchingPdf += 1;
     }
 
-    public synchronized void addToQueue(String path) {
-        this.queue.add(path);
-    }
-
-    public synchronized String pollFromQueue() {
-        return this.queue.poll();
-    }
-
-    public synchronized boolean isMasterRunning() {
-        return this.masterRunning;
-    }
-
     public synchronized void stopMaster() {
         this.masterRunning = false;
     }
 
-    public synchronized boolean isQueueEmpty() {
-        return this.queue.isEmpty();
+    public synchronized int getWorkersNumber() {
+        return this.nWorkers;
+    }
+
+    public synchronized boolean isAnalysisClosed() {
+        return this.isAnalysisClosed;
+    }
+
+    public synchronized void closeAnalysis() {
+        this.isAnalysisClosed = true;
     }
 
     public synchronized void incrementFoundPdf() {
@@ -59,8 +55,19 @@ public class SharedData {
         return searchPaused;
     }
 
+    public synchronized void checkPaused() {
+        if(this.isSearchPaused()){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
     public synchronized void resumeSearch() {
         this.searchPaused = false;
+        this.notifyAll();
     }
 
     public synchronized void pauseSearch() {

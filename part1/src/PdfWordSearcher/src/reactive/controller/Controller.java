@@ -1,8 +1,10 @@
-package threads.controller;
+package reactive.controller;
 
-import threads.model.Model;
-import threads.model.SharedData;
-import threads.view.View;
+import io.vertx.core.Vertx;
+import reactive.model.AnalyzerAgent;
+import reactive.model.SharedData;
+import reactive.model.UpdateGui;
+import reactive.view.View;
 
 public class Controller {
 
@@ -21,7 +23,9 @@ public class Controller {
         String path,
         String word
     ) {
-        new Model(path, word, sd, view).start();
+        new UpdateGui(sd, view).start();
+        final Vertx vertx = Vertx.vertx();
+        vertx.deployVerticle(new AnalyzerAgent(sd, path, word));
     }
 
     public void notifyPaused() {

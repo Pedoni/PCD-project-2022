@@ -1,6 +1,6 @@
-package threads.view;
+package events.view;
 
-import threads.controller.Controller;
+import events.controller.Controller;
 
 import javax.swing.*;
 import java.awt.*;
@@ -121,6 +121,7 @@ public class GUI extends JFrame  implements ActionListener {
                 "Matching PDFs: " + matching + "\n" +
                 "---------------------\n";
             data.setText(text);
+            repaint();
         });
     }
 

@@ -19,5 +19,7 @@ dependencies {
     implementation 'junit:junit:4.13.2'
     implementation 'io.vertx:vertx-core:4.3.4'
     implementation 'org.apache.pdfbox:pdfbox:2.0.27'
-    implementation 'com.github.javaparser:javaparser-symbol-solver-core:3.24.2'
+    implementation 'io.reactivex.rxjava3:rxjava:3.1.5'
+    implementation platform('com.typesafe.akka:akka-bom_2.13:2.7.0')
+    implementation "com.typesafe.akka:akka-actor-typed_2.13"
 }
