@@ -1,4 +1,4 @@
-package actors.model;
+package actors.controller;
 
 public abstract class Data {
     public static String word;

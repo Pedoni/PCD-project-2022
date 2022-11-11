@@ -1,4 +1,4 @@
-package actors.model;
+package actors.performance;
 
 public class Chrono {
     private boolean running;

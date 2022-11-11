@@ -1,11 +1,10 @@
-package tasks;
+package reactive;
 
+import reactive.controller.Controller;
+import reactive.model.SharedData;
+import reactive.view.View;
 
-import tasks.controller.Controller;
-import tasks.model.SharedData;
-import tasks.view.View;
-
-public class GuiMain {
+public class Main {
     public static void main(String[] args) {
         final SharedData sd =  new SharedData();
         final Controller controller = new Controller(sd);

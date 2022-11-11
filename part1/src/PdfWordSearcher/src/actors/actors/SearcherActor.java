@@ -1,6 +1,8 @@
-package actors.model;
+package actors.actors;
 
-import akka.actor.PoisonPill;
+import actors.controller.Data;
+import actors.protocols.CounterProtocol;
+import actors.protocols.SearchAnalyzeProtocol;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.AbstractBehavior;
 import akka.actor.typed.javadsl.ActorContext;
@@ -8,11 +10,9 @@ import akka.actor.typed.javadsl.Behaviors;
 import akka.actor.typed.javadsl.Receive;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
-import scala.concurrent.duration.FiniteDuration;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 public class SearcherActor extends AbstractBehavior<SearchAnalyzeProtocol> {
 

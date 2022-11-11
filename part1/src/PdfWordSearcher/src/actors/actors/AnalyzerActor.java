@@ -1,5 +1,8 @@
-package actors.model;
+package actors.actors;
 
+import actors.controller.Data;
+import actors.protocols.CounterProtocol;
+import actors.protocols.SearchAnalyzeProtocol;
 import akka.actor.typed.ActorSystem;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.AbstractBehavior;
@@ -46,7 +49,7 @@ public class AnalyzerActor extends AbstractBehavior<SearchAnalyzeProtocol> {
         } catch (IOException e){
             throw new RuntimeException(e);
         }
-        System.out.println("Master finished");
+        message.counter().tell(new CounterProtocol.Finish());
         return Behaviors.stopped();
     }
 }
