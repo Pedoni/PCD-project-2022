@@ -1,6 +1,7 @@
 package actors.actors;
 
 import actors.controller.Data;
+import actors.controller.FlowController;
 import actors.protocols.CounterProtocol;
 import actors.protocols.SearchAnalyzeProtocol;
 import akka.actor.typed.ActorSystem;
@@ -18,6 +19,8 @@ import java.util.stream.Stream;
 
 public class AnalyzerActor extends AbstractBehavior<SearchAnalyzeProtocol> {
 
+    private static FlowController flowController;
+
     public AnalyzerActor(ActorContext<SearchAnalyzeProtocol> context) {
         super(context);
     }
@@ -29,16 +32,18 @@ public class AnalyzerActor extends AbstractBehavior<SearchAnalyzeProtocol> {
                 .build();
     }
 
-    public static Behavior<SearchAnalyzeProtocol> create() {
+    public static Behavior<SearchAnalyzeProtocol> create(FlowController flowController) {
+        AnalyzerActor.flowController = flowController;
         return Behaviors.setup(AnalyzerActor::new);
     }
 
     private Behavior<SearchAnalyzeProtocol> onBootMessage(SearchAnalyzeProtocol.BootMessage message) {
         try (Stream<Path> walkStream = Files.walk(Paths.get(Data.path))) {
             walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
+                flowController.checkPaused();
                 if (f.toString().endsWith("pdf")) {
                     message.counter().tell(new CounterProtocol.IncrementFoundMessage());
-                    ActorSystem.create(SearcherActor.create(), "searcher").tell(
+                    ActorSystem.create(SearcherActor.create(flowController), "searcher").tell(
                             new SearchAnalyzeProtocol.SearchMessage(
                                     f.toString(),
                                     message.counter()

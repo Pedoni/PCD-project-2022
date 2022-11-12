@@ -11,6 +11,11 @@ import akka.actor.typed.ActorSystem;
 public class Controller {
 
     private View view;
+    private final FlowController flowController;
+
+    public Controller() {
+        this.flowController = new FlowController();
+    }
 
     public void setView(View view) {
         this.view = view;
@@ -24,7 +29,7 @@ public class Controller {
         Data.word = word;
 
         final ActorSystem<SearchAnalyzeProtocol> analyzer =
-                ActorSystem.create(AnalyzerActor.create(), "analyzer");
+                ActorSystem.create(AnalyzerActor.create(flowController), "analyzer");
 
         final ActorSystem<SearchAnalyzeProtocol> viewer =
                 ActorSystem.create(ViewerActor.create(view), "viewer");
@@ -36,11 +41,11 @@ public class Controller {
     }
 
     public void notifyPaused() {
-
+        this.flowController.pauseSearch();
     }
 
     public void notifyResumed() {
-
+        this.flowController.resumeSearch();
     }
 
     public void resetData() {

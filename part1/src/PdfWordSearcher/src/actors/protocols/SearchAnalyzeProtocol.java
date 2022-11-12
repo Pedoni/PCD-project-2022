@@ -11,4 +11,6 @@ public interface SearchAnalyzeProtocol {
 
     record UpdateGuiMessage(int found, int matching, int analyzed) implements SearchAnalyzeProtocol {}
 
+    record ResetGuiMessage() implements SearchAnalyzeProtocol {}
+
 }

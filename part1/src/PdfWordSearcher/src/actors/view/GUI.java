@@ -121,7 +121,6 @@ public class GUI extends JFrame  implements ActionListener {
                 "Matching PDFs: " + matching + "\n" +
                 "---------------------\n";
             data.setText(text);
-            repaint();
         });
     }
 

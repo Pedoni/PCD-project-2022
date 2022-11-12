@@ -133,8 +133,6 @@ public class GUI extends JFrame  implements ActionListener {
     }
 
     public void display() {
-        SwingUtilities.invokeLater(() -> {
-            this.setVisible(true);
-        });
+        SwingUtilities.invokeLater(() -> this.setVisible(true));
     }
 }

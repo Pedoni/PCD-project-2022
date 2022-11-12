@@ -1,6 +1,7 @@
 package actors.actors;
 
 import actors.controller.Data;
+import actors.controller.FlowController;
 import actors.protocols.CounterProtocol;
 import actors.protocols.SearchAnalyzeProtocol;
 import akka.actor.typed.Behavior;
@@ -16,6 +17,8 @@ import java.io.IOException;
 
 public class SearcherActor extends AbstractBehavior<SearchAnalyzeProtocol> {
 
+    private static FlowController flowController;
+
     public SearcherActor(ActorContext<SearchAnalyzeProtocol> context) {
         super(context);
     }
@@ -27,12 +30,14 @@ public class SearcherActor extends AbstractBehavior<SearchAnalyzeProtocol> {
                 .build();
     }
 
-    public static Behavior<SearchAnalyzeProtocol> create() {
+    public static Behavior<SearchAnalyzeProtocol> create(FlowController flowController) {
+        SearcherActor.flowController = flowController;
         return Behaviors.setup(SearcherActor::new);
     }
 
     private Behavior<SearchAnalyzeProtocol> onSearchMessage(SearchAnalyzeProtocol.SearchMessage message) {
         try {
+            flowController.checkPaused();
             if(message.currentPath() != null){
                 File file = new File(message.currentPath());
                 PDDocument document = PDDocument.load(file);

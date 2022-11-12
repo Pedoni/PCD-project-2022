@@ -39,6 +39,8 @@ public class SharedData {
 
     public synchronized void incrementAnalyzedPdf() {
         this.analyzedPdf += 1;
+        if (analyzedPdf == foundPdf && !masterRunning)
+            closeAnalysis();
     }
 
     public synchronized boolean isAnalysisClosed() {

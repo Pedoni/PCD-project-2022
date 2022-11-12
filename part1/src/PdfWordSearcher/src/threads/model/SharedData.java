@@ -10,7 +10,7 @@ public class SharedData {
     private final ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
     private boolean masterRunning = true;
     private boolean searchPaused = false;
-    private final int nWorkers = Runtime.getRuntime().availableProcessors();
+    private final int nWorkers = Runtime.getRuntime().availableProcessors() + 1;
     private int closedWorkers = 0;
 
 

@@ -24,6 +24,7 @@ public class AnalyzerAgent extends AbstractVerticle {
         EventBus eb = getVertx().eventBus();
         try (Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
             walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
+                sd.checkPaused();
                 if (f.toString().endsWith("pdf")) {
                     sd.incrementFoundPdf();
                     eb.publish( "queue", f.toString());

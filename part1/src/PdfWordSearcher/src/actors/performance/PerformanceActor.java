@@ -3,6 +3,7 @@ package actors.performance;
 import actors.actors.AnalyzerActor;
 import actors.actors.CounterActor;
 import actors.controller.Data;
+import actors.controller.FlowController;
 import actors.protocols.CounterProtocol;
 import actors.protocols.SearchAnalyzeProtocol;
 import akka.actor.typed.ActorRef;
@@ -45,7 +46,7 @@ public class PerformanceActor extends AbstractBehavior<PerformanceProtocol> {
         }
 
         final ActorSystem<SearchAnalyzeProtocol> analyzer =
-                ActorSystem.create(AnalyzerActor.create(), "analyzer");
+                ActorSystem.create(AnalyzerActor.create(new FlowController()), "analyzer");
 
         final ActorSystem<CounterProtocol> counter =
                 ActorSystem.create(CounterActor.create(null, getContext().getSelf()), "counter");

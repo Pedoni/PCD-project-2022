@@ -20,7 +20,13 @@ public class ViewerActor extends AbstractBehavior<SearchAnalyzeProtocol> {
     public Receive<SearchAnalyzeProtocol> createReceive() {
         return newReceiveBuilder()
                 .onMessage(SearchAnalyzeProtocol.UpdateGuiMessage.class, this::onUpdateGuiMessage)
+                .onMessage(SearchAnalyzeProtocol.ResetGuiMessage.class, this::onResetGuiMessage)
                 .build();
+    }
+
+    private Behavior<SearchAnalyzeProtocol> onResetGuiMessage(SearchAnalyzeProtocol.ResetGuiMessage message) {
+        ViewerActor.view.resetState();
+        return this;
     }
 
     private Behavior<SearchAnalyzeProtocol> onUpdateGuiMessage(SearchAnalyzeProtocol.UpdateGuiMessage message) {

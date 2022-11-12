@@ -1,10 +1,8 @@
 package actors.actors;
 
-import actors.performance.PerformanceActor;
 import actors.performance.PerformanceProtocol;
 import actors.protocols.CounterProtocol;
 import actors.protocols.SearchAnalyzeProtocol;
-import akka.actor.Kill;
 import akka.actor.typed.ActorRef;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.AbstractBehavior;
@@ -74,20 +72,16 @@ public class CounterActor extends AbstractBehavior<CounterProtocol> {
     private Behavior<CounterProtocol> onIncrementAnalyzedMessage(
             CounterProtocol.IncrementAnalyzedMessage message) {
         this.analyzed++;
-        if (viewer != null)
+        if (viewer != null) {
             viewer.tell(new SearchAnalyzeProtocol.UpdateGuiMessage(found, matching, analyzed));
-        System.out.println(
-                "ANALYZED: " + this.analyzed +
-                "\n, FOUND: " + this.found +
-                "\n, MATCHING: " + this.matching +
-                "\n"
-        );
+            if (this.isMasterFinished && (this.found == this.analyzed))
+                viewer.tell(new SearchAnalyzeProtocol.ResetGuiMessage());
+        }
         if (isStopping()) {
             performer.tell(new PerformanceProtocol.KillMessage());
             return Behaviors.stopped();
         }
         return this;
-        //return isStopping() ? Behaviors.stopped() : this;
     }
 
     private boolean isStopping() {

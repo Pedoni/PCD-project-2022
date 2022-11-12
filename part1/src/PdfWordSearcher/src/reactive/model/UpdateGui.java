@@ -4,8 +4,8 @@ import reactive.view.View;
 
 public class UpdateGui extends Thread {
 
-    private SharedData sd;
-    private View view;
+    private final SharedData sd;
+    private final View view;
 
     public UpdateGui(SharedData sd, View view) {
         this.sd = sd;

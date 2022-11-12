@@ -1,8 +1,10 @@
 package events.model;
 
 import io.vertx.core.AbstractVerticle;
+import io.vertx.core.DeploymentOptions;
 import io.vertx.core.eventbus.EventBus;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.encryption.AccessPermission;
 import org.apache.pdfbox.text.PDFTextStripper;
 
 import java.io.File;
@@ -22,6 +24,7 @@ public class SearcherAgent extends AbstractVerticle {
     public void start() {
         EventBus eb = getVertx().eventBus();
         eb.<String>consumer("queue", message -> {
+            sd.checkPaused();
             System.out.println("Worker: I have received the message: " + message.body());
             try {
                 searchWordInPdf(this.sd, message.body());
@@ -38,6 +41,9 @@ public class SearcherAgent extends AbstractVerticle {
         if(currentPath != null){
             File file = new File(currentPath);
             PDDocument document = PDDocument.load(file);
+            AccessPermission ap = document.getCurrentAccessPermission();
+            if (!ap.canExtractContent())
+                throw new IOException("You do not have permission to extract text");
             PDFTextStripper pdfStripper = new PDFTextStripper();
             String text = pdfStripper.getText(document);
             if(text.contains(this.word)) {

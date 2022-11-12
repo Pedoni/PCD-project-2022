@@ -46,6 +46,7 @@ public class AnalyzerAgent extends AbstractVerticle {
         Flowable<String> source = Flowable.create(emitter -> new Thread(() -> {
             try (Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
                 walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
+                    sd.checkPaused();
                     if (f.toString().endsWith("pdf")) {
                         this.sd.incrementFoundPdf();
                         emitter.onNext(f.toString());
@@ -62,6 +63,7 @@ public class AnalyzerAgent extends AbstractVerticle {
 
     private void searchInPdf(String v) {
         try {
+            sd.checkPaused();
             if(v != null){
                 File file = new File(v);
                 PDDocument document = PDDocument.load(file);
