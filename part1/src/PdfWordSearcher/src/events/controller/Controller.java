@@ -3,53 +3,44 @@ package events.controller;
 import events.model.*;
 import events.view.View;
 import io.vertx.core.DeploymentOptions;
-import io.vertx.core.Future;
 import io.vertx.core.Vertx;
-import events.model.UpdateGui;
+import io.vertx.core.VertxOptions;
+import io.vertx.core.eventbus.EventBus;
+
+import java.util.stream.Stream;
 
 public class Controller {
 
-    private SharedData sd;
-    private View view;
+    private FlowController fc;
+    private final Vertx vertx;
+    private final EventBus eb;
 
-    public Controller(SharedData sd) {
-        this.sd = sd;
+    public Controller() {
+        this.fc = new FlowController();
+        this.vertx = Vertx.vertx(new VertxOptions().setWorkerPoolSize(Runtime.getRuntime().availableProcessors()));
+        this.eb = vertx.eventBus();
     }
 
-    public void setView(View view) {
-        this.view = view;
+    public EventBus getEventBus() {
+        return this.eb;
     }
 
-    public void notifyStarted(
-        String path,
-        String word
-    ) {
-        new UpdateGui(sd, view).start();
-        final Vertx vertx = Vertx.vertx();
-
-        int WORKER_POOL_SIZE = 8;
-
-        DeploymentOptions masterOpts = new DeploymentOptions()
-                .setWorkerPoolSize(WORKER_POOL_SIZE);
-
-        DeploymentOptions workerOpts = new DeploymentOptions()
-                .setWorker(true)
-                .setInstances(WORKER_POOL_SIZE)
-                .setWorkerPoolSize(WORKER_POOL_SIZE);
-
-        vertx.deployVerticle(new AnalyzerAgent(sd, path));
-        vertx.deployVerticle(new SearcherAgent(sd, word));
+    public void notifyStarted(String path, String word) {
+        vertx.deployVerticle(new AnalyzerAgent(fc, path));
+        vertx.deployVerticle(new SearcherAgent(fc, word));
+        //vertx.deployVerticle(new CounterAgent());
+        //vertx.deployVerticle(new ViewAgent(view));
     }
 
     public void notifyPaused() {
-        this.sd.pauseSearch();
+        this.fc.pauseSearch();
     }
 
     public void notifyResumed() {
-        this.sd.resumeSearch();
+        this.fc.resumeSearch();
     }
 
     public void resetData() {
-        this.sd = new SharedData();
+        this.fc = new FlowController();
     }
 }
