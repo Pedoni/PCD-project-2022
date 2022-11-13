@@ -1,5 +1,6 @@
 package events.model;
 
+import events.controller.Data;
 import events.controller.FlowController;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.EventBus;
@@ -13,30 +14,27 @@ import java.io.IOException;
 public class SearcherAgent extends AbstractVerticle {
 
     private final FlowController fc;
-    private final String word;
 
-    public SearcherAgent(FlowController fc, String word) {
+    public SearcherAgent(final FlowController fc) {
         this.fc = fc;
-        this.word = word;
     }
 
     @Override
     public void start() {
-        EventBus eb = getVertx().eventBus();
+        final EventBus eb = getVertx().eventBus();
         eb.<String>consumer("queue", message -> {
             fc.checkPaused();
             try {
                 if(message.body() != null){
-                    File file = new File(message.body());
-                    PDDocument document = PDDocument.load(file);
-                    AccessPermission ap = document.getCurrentAccessPermission();
+                    final File file = new File(message.body());
+                    final PDDocument document = PDDocument.load(file);
+                    final AccessPermission ap = document.getCurrentAccessPermission();
                     if (!ap.canExtractContent())
                         throw new IOException("You do not have permission to extract text");
-                    PDFTextStripper pdfStripper = new PDFTextStripper();
-                    String text = pdfStripper.getText(document);
-                    if(text.contains(this.word)) {
+                    final PDFTextStripper pdfStripper = new PDFTextStripper();
+                    final String text = pdfStripper.getText(document);
+                    if(text.contains(Data.word))
                         eb.publish("matching", true);
-                    }
                     eb.publish("analyzed", true);
                     document.close();
                 }

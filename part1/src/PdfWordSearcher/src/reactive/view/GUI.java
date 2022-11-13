@@ -97,7 +97,8 @@ public class GUI extends JFrame  implements ActionListener {
             data.setText("");
             controller.resetData();
             controller.notifyStarted(selectedDirPath, "Ricci");
-            resume.setEnabled(true);
+            chooseDir.setEnabled(false);
+            resume.setEnabled(false);
             pause.setEnabled(true);
             start.setEnabled(false);
         } else if (src == pause){
@@ -126,6 +127,7 @@ public class GUI extends JFrame  implements ActionListener {
 
     public void resetState() {
         SwingUtilities.invokeLater(()-> {
+            chooseDir.setEnabled(true);
             start.setEnabled(true);
             pause.setEnabled(false);
             resume.setEnabled(false);

@@ -1,7 +1,6 @@
 package events;
 
 import events.controller.Controller;
-import events.controller.FlowController;
 import events.view.View;
 
 public class Main {

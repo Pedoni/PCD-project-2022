@@ -1,5 +1,6 @@
 package events.model;
 
+import events.controller.Data;
 import events.controller.FlowController;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.EventBus;
@@ -13,22 +14,20 @@ import java.util.stream.Stream;
 public class AnalyzerAgent extends AbstractVerticle {
 
     private final FlowController fc;
-    private final String path;
 
-    public AnalyzerAgent(FlowController fc, String path) {
+    public AnalyzerAgent(FlowController fc) {
         this.fc = fc;
-        this.path = path;
     }
 
     @Override
     public void start() {
-        EventBus eb = getVertx().eventBus();
-        try (Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
+        final EventBus eb = getVertx().eventBus();
+        try (Stream<Path> walkStream = Files.walk(Paths.get(Data.path))) {
             walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
                 fc.checkPaused();
                 if (f.toString().endsWith("pdf")) {
                     eb.publish("found", true);
-                    eb.send( "queue", f.toString());
+                    eb.publish( "queue", f.toString());
                 }
             });
         } catch (IOException e){

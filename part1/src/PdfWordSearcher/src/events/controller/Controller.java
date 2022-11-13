@@ -12,8 +12,8 @@ import java.util.stream.Stream;
 public class Controller {
 
     private FlowController fc;
-    private final Vertx vertx;
-    private final EventBus eb;
+    private Vertx vertx;
+    private EventBus eb;
 
     public Controller() {
         this.fc = new FlowController();
@@ -25,11 +25,11 @@ public class Controller {
         return this.eb;
     }
 
-    public void notifyStarted(String path, String word) {
-        vertx.deployVerticle(new AnalyzerAgent(fc, path));
-        vertx.deployVerticle(new SearcherAgent(fc, word));
-        //vertx.deployVerticle(new CounterAgent());
-        //vertx.deployVerticle(new ViewAgent(view));
+    public void notifyStarted(final String path, final String word) {
+        Data.word = word;
+        Data.path = path;
+        vertx.deployVerticle(new AnalyzerAgent(fc));
+        vertx.deployVerticle(new SearcherAgent(fc));
     }
 
     public void notifyPaused() {

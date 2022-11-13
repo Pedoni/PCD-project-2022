@@ -5,7 +5,7 @@ import events.controller.Controller;
 public class View {
     private final GUI gui;
 
-    public View(Controller controller){
+    public View(final Controller controller){
         gui = new GUI(controller);
     }
 

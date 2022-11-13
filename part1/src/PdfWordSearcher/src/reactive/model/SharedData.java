@@ -17,10 +17,6 @@ public class SharedData {
         this.matchingPdf += 1;
     }
 
-    public synchronized boolean isMasterRunning() {
-        return this.masterRunning;
-    }
-
     public synchronized void stopMaster() {
         this.masterRunning = false;
     }
@@ -39,8 +35,10 @@ public class SharedData {
 
     public synchronized void incrementAnalyzedPdf() {
         this.analyzedPdf += 1;
-        if (analyzedPdf == foundPdf && !masterRunning)
+        if ((analyzedPdf == foundPdf) && !masterRunning) {
+            System.out.println("CHIUDO");
             closeAnalysis();
+        }
     }
 
     public synchronized boolean isAnalysisClosed() {

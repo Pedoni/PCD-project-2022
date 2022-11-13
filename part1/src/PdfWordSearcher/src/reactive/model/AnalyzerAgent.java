@@ -15,7 +15,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class AnalyzerAgent extends AbstractVerticle {
+public class AnalyzerAgent {
 
     private final SharedData sd;
     private final String path;
@@ -27,19 +27,13 @@ public class AnalyzerAgent extends AbstractVerticle {
         this.word = word;
     }
 
-    @Override
     public void start() {
         Flowable<String> source = this.genHotStream();
-        source
-                .onBackpressureDrop(v -> System.out.println("DROPPING: " + v))
+        source.onBackpressureDrop(v -> System.out.println("DROPPING: " + v))
                 .observeOn(Schedulers.computation())
                 .subscribe(this::searchInPdf, error -> System.out.println("ERROR: " + error));
         sd.stopMaster();
-        try {
-            vertx.undeploy(this.deploymentID());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
     private Flowable<String> genHotStream() {
@@ -76,9 +70,6 @@ public class AnalyzerAgent extends AbstractVerticle {
                 sd.incrementAnalyzedPdf();
                 System.out.println("ANALYZED PDFs: " + sd.getAnalyzedPdf());
                 document.close();
-            }
-            if(!sd.isMasterRunning()){
-                vertx.undeploy(this.deploymentID());
             }
         } catch (Exception e) {
             throw new RuntimeException(e);

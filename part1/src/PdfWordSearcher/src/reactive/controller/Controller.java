@@ -11,21 +11,17 @@ public class Controller {
     private SharedData sd;
     private View view;
 
-    public Controller(SharedData sd) {
-        this.sd = sd;
+    public Controller() {
+        this.sd = new SharedData();
     }
 
     public void setView(View view) {
         this.view = view;
     }
 
-    public void notifyStarted(
-        String path,
-        String word
-    ) {
+    public void notifyStarted(String path, String word) {
         new UpdateGui(sd, view).start();
-        final Vertx vertx = Vertx.vertx();
-        vertx.deployVerticle(new AnalyzerAgent(sd, path, word));
+        new AnalyzerAgent(sd, path, word).start();
     }
 
     public void notifyPaused() {
