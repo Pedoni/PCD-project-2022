@@ -19,8 +19,11 @@ public class GUI extends JFrame  implements ActionListener {
     private final JTextField selectedDir;
     private String selectedDirPath;
     private final JTextArea data;
-
     private final Controller controller;
+    private int found = 0;
+    private int analyzed = 0;
+    private int matching = 0;
+    private boolean isMasterRunning = true;
 
     public GUI(Controller controller){
         setTitle("PDF Searcher");
@@ -69,6 +72,33 @@ public class GUI extends JFrame  implements ActionListener {
             }
         });
 
+        this.controller.getEventBus().consumer("masterfinished", message -> {
+            this.isMasterRunning = false;
+        });
+
+        this.controller.getEventBus().consumer("found", message -> {
+            this.found += 1;
+            this.updateData();
+            if (this.found == this.analyzed && !isMasterRunning) {
+                this.controller.resetData();
+                this.resetState();
+            }
+        });
+
+        this.controller.getEventBus().consumer("analyzed", message -> {
+            this.analyzed += 1;
+            this.updateData();
+            if (this.found == this.analyzed && !isMasterRunning) {
+                this.controller.resetData();
+                this.resetState();
+            }
+        });
+
+        this.controller.getEventBus().consumer("matching", message -> {
+            this.matching += 1;
+            this.updateData();
+        });
+
         chooseDir.addActionListener(this);
         start.addActionListener(this);
         pause.addActionListener(this);
@@ -111,24 +141,27 @@ public class GUI extends JFrame  implements ActionListener {
         }
     }
 
-    public void updateData(int found, int analyzed, int matching) {
+    private void updateData() {
         SwingUtilities.invokeLater(()-> {
             String text =
                 "Analyzing... \n" +
                 "---------------------\n" +
-                "Total PDFs: " + found + "\n" +
-                "Analyzed PDFs: " + analyzed + "\n" +
-                "Matching PDFs: " + matching + "\n" +
+                "Total PDFs: " + this.found + "\n" +
+                "Analyzed PDFs: " + this.analyzed + "\n" +
+                "Matching PDFs: " + this.matching + "\n" +
                 "---------------------\n";
             data.setText(text);
         });
     }
 
-    public void resetState() {
+    private void resetState() {
         SwingUtilities.invokeLater(()-> {
             start.setEnabled(true);
             pause.setEnabled(false);
             resume.setEnabled(false);
+            this.found = 0;
+            this.analyzed = 0;
+            this.matching = 0;
         });
     }
 

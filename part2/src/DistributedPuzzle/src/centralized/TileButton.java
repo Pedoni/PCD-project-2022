@@ -1,4 +1,4 @@
-package puzzle;
+package centralized;
 
 import java.awt.Color;
 import java.awt.event.MouseAdapter;

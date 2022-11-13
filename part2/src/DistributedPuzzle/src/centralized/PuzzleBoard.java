@@ -1,4 +1,4 @@
-package puzzle;
+package centralized;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;

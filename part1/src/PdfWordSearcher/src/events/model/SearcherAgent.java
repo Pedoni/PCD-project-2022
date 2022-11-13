@@ -1,7 +1,7 @@
 package events.model;
 
+import events.controller.FlowController;
 import io.vertx.core.AbstractVerticle;
-import io.vertx.core.DeploymentOptions;
 import io.vertx.core.eventbus.EventBus;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.encryption.AccessPermission;
@@ -12,11 +12,11 @@ import java.io.IOException;
 
 public class SearcherAgent extends AbstractVerticle {
 
-    private final SharedData sd;
+    private final FlowController fc;
     private final String word;
 
-    public SearcherAgent(SharedData sd, String word) {
-        this.sd = sd;
+    public SearcherAgent(FlowController fc, String word) {
+        this.fc = fc;
         this.word = word;
     }
 
@@ -24,36 +24,30 @@ public class SearcherAgent extends AbstractVerticle {
     public void start() {
         EventBus eb = getVertx().eventBus();
         eb.<String>consumer("queue", message -> {
-            sd.checkPaused();
-            System.out.println("Worker: I have received the message: " + message.body());
+            fc.checkPaused();
             try {
-                searchWordInPdf(this.sd, message.body());
-                if(!sd.isMasterRunning()){
-                    vertx.undeploy(this.deploymentID());
+                if(message.body() != null){
+                    File file = new File(message.body());
+                    PDDocument document = PDDocument.load(file);
+                    AccessPermission ap = document.getCurrentAccessPermission();
+                    if (!ap.canExtractContent())
+                        throw new IOException("You do not have permission to extract text");
+                    PDFTextStripper pdfStripper = new PDFTextStripper();
+                    String text = pdfStripper.getText(document);
+                    if(text.contains(this.word)) {
+                        eb.publish("matching", true);
+                    }
+                    eb.publish("analyzed", true);
+                    document.close();
                 }
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
         });
-    }
-
-    private void searchWordInPdf(SharedData sd, String currentPath) throws IOException {
-        if(currentPath != null){
-            File file = new File(currentPath);
-            PDDocument document = PDDocument.load(file);
-            AccessPermission ap = document.getCurrentAccessPermission();
-            if (!ap.canExtractContent())
-                throw new IOException("You do not have permission to extract text");
-            PDFTextStripper pdfStripper = new PDFTextStripper();
-            String text = pdfStripper.getText(document);
-            if(text.contains(this.word)) {
-                sd.incrementOccurrences();
-                System.out.println("TOTAL OCCURRENCES: " + sd.getMatchingPdf());
-            }
-            sd.incrementAnalyzedPdf();
-            System.out.println("ANALYZED PDFs: " + sd.getAnalyzedPdf());
-            document.close();
-        }
+        vertx.undeploy(this.deploymentID());
+        //if(!sd.isMasterRunning()){
+        //    vertx.undeploy(this.deploymentID());
+        //}
     }
 
 }

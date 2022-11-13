@@ -1,4 +1,4 @@
-package puzzle;
+package centralized;
 
 public class Application {
 
