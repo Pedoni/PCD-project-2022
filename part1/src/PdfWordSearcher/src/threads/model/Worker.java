@@ -8,42 +8,38 @@ import java.io.IOException;
 
 public final class Worker extends Thread {
 
-    private final int id;
     private final SharedData sd;
     private final String word;
 
-    public Worker(final int id, final SharedData sd, final String word) {
-        this.id = id;
+    public Worker(final SharedData sd, final String word) {
         this.sd = sd;
         this.word = word;
     }
 
     public void run() {
-        while(sd.isMasterRunning() || !sd.isQueueEmpty()){
-            sd.checkPaused();
+        while(this.sd.isMasterRunning() || !this.sd.isQueueEmpty()){
+            this.sd.checkPaused();
             try {
-                searchWordInPdf(sd);
+                this.searchWordInPdf();
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }
-        sd.incrementClosedWorkers();
+        this.sd.incrementClosedWorkers();
     }
 
-    private void searchWordInPdf(final SharedData sd) throws IOException {
-        final String currentPath = sd.pollFromQueue();
+    private void searchWordInPdf() throws IOException {
+        final String currentPath = this.sd.pollFromQueue();
         if(currentPath != null){
             final File file = new File(currentPath);
             final PDDocument document = PDDocument.load(file);
             final PDFTextStripper pdfStripper = new PDFTextStripper();
             final String text = pdfStripper.getText(document);
-            if(text.contains(this.word)) {
-                sd.incrementOccurrences();
-            }
-            sd.incrementAnalyzedPdf();
+            if(text.contains(this.word))
+                this.sd.incrementOccurrences();
+            this.sd.incrementAnalyzedPdf();
             document.close();
         }
     }
-
 
 }

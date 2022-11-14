@@ -1,13 +1,13 @@
 package threads.model;
 
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.*;
 
 public final class SharedData {
 
     private int foundPdf = 0;
     private int analyzedPdf = 0;
     private int matchingPdf = 0;
-    private final ConcurrentLinkedQueue<String> queue = new ConcurrentLinkedQueue<>();
+    private final BlockingQueue<String> queue = new LinkedBlockingQueue<>();
     private boolean masterRunning = true;
     private boolean searchPaused = false;
     private final int nWorkers = Runtime.getRuntime().availableProcessors();

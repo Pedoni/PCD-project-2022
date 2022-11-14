@@ -24,7 +24,7 @@ public final class Model {
     public void start() {
         new Master(this.sd, path).start();
         for(int i = 0; i < sd.getWorkersNumber(); i++){
-            new Worker(i, sd, word).start();
+            new Worker(sd, word).start();
         }
         new Thread(() -> {
             while(!sd.areAllWorkersFinished()) {

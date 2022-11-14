@@ -1,5 +1,6 @@
 package reactive.view;
 
+import io.reactivex.rxjava3.core.Flowable;
 import reactive.controller.Controller;
 
 import javax.swing.*;
@@ -135,4 +136,5 @@ public final class GUI extends JFrame implements ActionListener {
     public void display() {
         SwingUtilities.invokeLater(() -> this.setVisible(true));
     }
+
 }

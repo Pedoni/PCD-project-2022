@@ -1,5 +1,6 @@
 package reactive.controller;
 
+import io.reactivex.rxjava3.core.Flowable;
 import reactive.model.AnalyzerAgent;
 import reactive.model.SharedData;
 import reactive.model.UpdateGui;

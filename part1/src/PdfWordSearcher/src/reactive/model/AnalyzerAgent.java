@@ -7,6 +7,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import io.vertx.core.AbstractVerticle;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
+import reactive.controller.Controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -33,7 +34,6 @@ public final class AnalyzerAgent {
                 .observeOn(Schedulers.computation())
                 .subscribe(this::searchInPdf, error -> System.out.println("ERROR: " + error));
         this.sd.stopMaster();
-
     }
 
     private Flowable<String> genHotStream() {
@@ -46,6 +46,7 @@ public final class AnalyzerAgent {
                         emitter.onNext(f.toString());
                     }
                 });
+                emitter.onComplete();
             } catch (IOException e){
                 throw new RuntimeException(e);
             }
@@ -64,7 +65,7 @@ public final class AnalyzerAgent {
                 final PDFTextStripper pdfStripper = new PDFTextStripper();
                 final String text = pdfStripper.getText(document);
                 if(text.contains(this.word)) {
-                    sd.incrementOccurrences();
+                    this.sd.incrementOccurrences();
                     System.out.println("TOTAL OCCURRENCES: " + this.sd.getMatchingPdf());
                 }
                 this.sd.incrementAnalyzedPdf();

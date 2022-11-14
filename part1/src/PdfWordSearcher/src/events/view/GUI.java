@@ -72,9 +72,7 @@ public final class GUI extends JFrame  implements ActionListener {
             }
         });
 
-        this.controller.getEventBus().consumer("masterfinished", message -> {
-            this.isMasterRunning = false;
-        });
+        this.controller.getEventBus().consumer("masterfinished", message -> this.isMasterRunning = false);
 
         this.controller.getEventBus().consumer("found", message -> {
             this.found += 1;

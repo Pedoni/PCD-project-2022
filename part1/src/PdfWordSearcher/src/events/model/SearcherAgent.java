@@ -14,6 +14,7 @@ import java.io.IOException;
 public final class SearcherAgent extends AbstractVerticle {
 
     private final FlowController fc;
+    private int blabla = 0;
 
     public SearcherAgent(final FlowController fc) {
         this.fc = fc;
@@ -22,10 +23,12 @@ public final class SearcherAgent extends AbstractVerticle {
     @Override
     public void start() {
         final EventBus eb = getVertx().eventBus();
-        eb.<String>consumer("queue", message -> {
+        eb.<String>consumer("queue", message -> vertx.executeBlocking(handler -> {
+            System.out.println("INIZIO CONSUMER QUEUE: " + blabla);
+            blabla++;
             this.fc.checkPaused();
             try {
-                if(message.body() != null){
+                if (message.body() != null) {
                     final File file = new File(message.body());
                     final PDDocument document = PDDocument.load(file);
                     final AccessPermission ap = document.getCurrentAccessPermission();
@@ -33,7 +36,7 @@ public final class SearcherAgent extends AbstractVerticle {
                         throw new IOException("You do not have permission to extract text");
                     final PDFTextStripper pdfStripper = new PDFTextStripper();
                     final String text = pdfStripper.getText(document);
-                    if(text.contains(Data.word))
+                    if (text.contains(Data.word))
                         eb.publish("matching", true);
                     eb.publish("analyzed", true);
                     document.close();
@@ -41,7 +44,8 @@ public final class SearcherAgent extends AbstractVerticle {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-        });
+            System.out.println("FINE CONSUMER QUEUE: " + blabla);
+        }));
         vertx.undeploy(this.deploymentID());
     }
 
