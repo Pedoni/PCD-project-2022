@@ -1,6 +1,6 @@
 package tasks.model;
 
-public class SharedData {
+public final class SharedData {
 
     private int foundPdf = 0;
     private int analyzedPdf = 0;
@@ -44,7 +44,7 @@ public class SharedData {
     }
 
     public synchronized int getAnalyzedPdf() {
-        return analyzedPdf;
+        return this.analyzedPdf;
     }
 
     public synchronized void incrementAnalyzedPdf() {
@@ -52,7 +52,7 @@ public class SharedData {
     }
 
     public synchronized boolean isSearchPaused() {
-        return searchPaused;
+        return this.searchPaused;
     }
 
     public synchronized void checkPaused() {

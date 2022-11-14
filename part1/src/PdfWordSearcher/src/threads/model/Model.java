@@ -2,7 +2,7 @@ package threads.model;
 
 import threads.view.View;
 
-public class Model {
+public final class Model {
 
     private final String path;
     private final String word;
@@ -10,10 +10,10 @@ public class Model {
     private final View view;
 
     public Model(
-        String path,
-        String word,
-        SharedData sd,
-        View view
+        final String path,
+        final String word,
+        final SharedData sd,
+        final View view
     ) {
         this.path = path;
         this.word = word;

@@ -2,7 +2,7 @@ package threads.model;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class SharedData {
+public final class SharedData {
 
     private int foundPdf = 0;
     private int analyzedPdf = 0;
@@ -12,7 +12,6 @@ public class SharedData {
     private boolean searchPaused = false;
     private final int nWorkers = Runtime.getRuntime().availableProcessors();
     private int closedWorkers = 0;
-
 
     public synchronized int getMatchingPdf() {
         return this.matchingPdf;
@@ -27,13 +26,6 @@ public class SharedData {
     }
 
     public synchronized String pollFromQueue() {
-        if(this.isSearchPaused()){
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
         return this.queue.poll();
     }
 
@@ -62,13 +54,6 @@ public class SharedData {
     }
 
     public synchronized void incrementFoundPdf() {
-        if(this.isSearchPaused()){
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-        }
         this.foundPdf += 1;
     }
 
@@ -96,4 +81,15 @@ public class SharedData {
     public synchronized void pauseSearch() {
         this.searchPaused = true;
     }
+
+    public synchronized void checkPaused() {
+        if(this.isSearchPaused()){
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
+
 }

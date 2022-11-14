@@ -1,28 +1,28 @@
 package actors.performance;
 
-public class Chrono {
+public final class Chrono {
     private boolean running;
     private long startTime;
 
     public Chrono(){
-        running = false;
+        this.running = false;
     }
 
     public void start(){
-        running = true;
-        startTime = System.currentTimeMillis();
+        this.running = true;
+        this.startTime = System.currentTimeMillis();
     }
 
     public void stop(){
-        startTime = getTime();
-        running = false;
+        this.startTime = getTime();
+        this.running = false;
     }
 
     public long getTime(){
-        if (running){
-            return System.currentTimeMillis() - startTime;
+        if (this.running){
+            return System.currentTimeMillis() - this.startTime;
         } else {
-            return startTime;
+            return this.startTime;
         }
     }
 

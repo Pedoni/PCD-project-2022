@@ -8,23 +8,20 @@ import actors.view.View;
 import actors.actors.ViewerActor;
 import akka.actor.typed.ActorSystem;
 
-public class Controller {
+public final class Controller {
 
     private View view;
-    private final FlowController flowController;
+    private FlowController flowController;
 
     public Controller() {
         this.flowController = new FlowController();
     }
 
-    public void setView(View view) {
+    public void setView(final View view) {
         this.view = view;
     }
 
-    public void notifyStarted(
-        String path,
-        String word
-    ) {
+    public void notifyStarted(final String path, final String word) {
         Data.path = path;
         Data.word = word;
 
@@ -49,6 +46,6 @@ public class Controller {
     }
 
     public void resetData() {
-
+        this.flowController = new FlowController();
     }
 }

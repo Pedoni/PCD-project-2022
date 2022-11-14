@@ -4,24 +4,21 @@ import threads.model.Model;
 import threads.model.SharedData;
 import threads.view.View;
 
-public class Controller {
+public final class Controller {
 
     private SharedData sd;
     private View view;
 
-    public Controller(SharedData sd) {
-        this.sd = sd;
+    public Controller() {
+        this.sd = new SharedData();
     }
 
-    public void setView(View view) {
+    public void setView(final View view) {
         this.view = view;
     }
 
-    public void notifyStarted(
-        String path,
-        String word
-    ) {
-        new Model(path, word, sd, view).start();
+    public void notifyStarted(final String path, final String word) {
+        new Model(path, word, this.sd, this.view).start();
     }
 
     public void notifyPaused() {

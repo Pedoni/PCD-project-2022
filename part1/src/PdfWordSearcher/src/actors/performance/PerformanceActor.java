@@ -18,11 +18,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class PerformanceActor extends AbstractBehavior<PerformanceProtocol> {
+public final class PerformanceActor extends AbstractBehavior<PerformanceProtocol> {
 
     private final Chrono chrono;
 
-    public PerformanceActor(ActorContext<PerformanceProtocol> context) {
+    public PerformanceActor(final ActorContext<PerformanceProtocol> context) {
         super(context);
         this.chrono = new Chrono();
     }
@@ -35,7 +35,7 @@ public class PerformanceActor extends AbstractBehavior<PerformanceProtocol> {
                 .build();
     }
 
-    private Behavior<PerformanceProtocol> onPerformMessage(PerformanceProtocol.PerformMessage message) {
+    private Behavior<PerformanceProtocol> onPerformMessage(final PerformanceProtocol.PerformMessage message) {
         final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         Data.path = "C:/Users/emala/Desktop/PCD";
         System.out.println("Type the word to search: ");
@@ -52,12 +52,12 @@ public class PerformanceActor extends AbstractBehavior<PerformanceProtocol> {
                 ActorSystem.create(CounterActor.create(null, getContext().getSelf()), "counter");
 
         analyzer.tell(new SearchAnalyzeProtocol.BootMessage(counter));
-        chrono.start();
+        this.chrono.start();
         return this;
     }
 
-    private Behavior<PerformanceProtocol> onKillMessage(PerformanceProtocol.KillMessage message) {
-        final long time = chrono.getTime();
+    private Behavior<PerformanceProtocol> onKillMessage(final PerformanceProtocol.KillMessage message) {
+        final long time = this.chrono.getTime();
         System.out.println("TOTAL TIME: " + (time/1000) + " seconds");
         return Behaviors.stopped();
     }

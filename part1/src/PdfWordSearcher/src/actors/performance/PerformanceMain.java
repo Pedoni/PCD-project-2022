@@ -4,9 +4,9 @@ import akka.actor.typed.ActorSystem;
 
 import java.io.IOException;
 
-public class PerformanceMain {
+public final class PerformanceMain {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         final ActorSystem<PerformanceProtocol> performer =
                 ActorSystem.create(PerformanceActor.create(), "performer");

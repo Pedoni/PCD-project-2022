@@ -12,7 +12,7 @@ public class ViewerActor extends AbstractBehavior<SearchAnalyzeProtocol> {
 
     private static View view;
 
-    public ViewerActor(ActorContext<SearchAnalyzeProtocol> context) {
+    public ViewerActor(final ActorContext<SearchAnalyzeProtocol> context) {
         super(context);
     }
 
@@ -24,17 +24,17 @@ public class ViewerActor extends AbstractBehavior<SearchAnalyzeProtocol> {
                 .build();
     }
 
-    private Behavior<SearchAnalyzeProtocol> onResetGuiMessage(SearchAnalyzeProtocol.ResetGuiMessage message) {
+    private Behavior<SearchAnalyzeProtocol> onResetGuiMessage(final SearchAnalyzeProtocol.ResetGuiMessage message) {
         ViewerActor.view.resetState();
         return this;
     }
 
-    private Behavior<SearchAnalyzeProtocol> onUpdateGuiMessage(SearchAnalyzeProtocol.UpdateGuiMessage message) {
+    private Behavior<SearchAnalyzeProtocol> onUpdateGuiMessage(final SearchAnalyzeProtocol.UpdateGuiMessage message) {
         ViewerActor.view.updateData(message.found(), message.analyzed(), message.matching());
         return this;
     }
 
-    public static Behavior<SearchAnalyzeProtocol> create(View view) {
+    public static Behavior<SearchAnalyzeProtocol> create(final View view) {
         ViewerActor.view = view;
         return Behaviors.setup(ViewerActor::new);
     }

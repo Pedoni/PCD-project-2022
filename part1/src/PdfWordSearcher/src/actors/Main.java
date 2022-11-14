@@ -3,7 +3,7 @@ package actors;
 import actors.controller.Controller;
 import actors.view.View;
 
-public class Main {
+public final class Main {
     public static void main(String[] args) {
         final Controller controller = new Controller();
         final View view = new View(controller);

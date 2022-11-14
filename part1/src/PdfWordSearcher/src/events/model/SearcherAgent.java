@@ -11,7 +11,7 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import java.io.File;
 import java.io.IOException;
 
-public class SearcherAgent extends AbstractVerticle {
+public final class SearcherAgent extends AbstractVerticle {
 
     private final FlowController fc;
 
@@ -23,7 +23,7 @@ public class SearcherAgent extends AbstractVerticle {
     public void start() {
         final EventBus eb = getVertx().eventBus();
         eb.<String>consumer("queue", message -> {
-            fc.checkPaused();
+            this.fc.checkPaused();
             try {
                 if(message.body() != null){
                     final File file = new File(message.body());
@@ -43,9 +43,6 @@ public class SearcherAgent extends AbstractVerticle {
             }
         });
         vertx.undeploy(this.deploymentID());
-        //if(!sd.isMasterRunning()){
-        //    vertx.undeploy(this.deploymentID());
-        //}
     }
 
 }

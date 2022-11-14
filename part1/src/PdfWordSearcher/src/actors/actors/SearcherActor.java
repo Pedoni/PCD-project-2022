@@ -15,11 +15,11 @@ import org.apache.pdfbox.text.PDFTextStripper;
 import java.io.File;
 import java.io.IOException;
 
-public class SearcherActor extends AbstractBehavior<SearchAnalyzeProtocol> {
+public final class SearcherActor extends AbstractBehavior<SearchAnalyzeProtocol> {
 
     private static FlowController flowController;
 
-    public SearcherActor(ActorContext<SearchAnalyzeProtocol> context) {
+    public SearcherActor(final ActorContext<SearchAnalyzeProtocol> context) {
         super(context);
     }
 
@@ -30,19 +30,19 @@ public class SearcherActor extends AbstractBehavior<SearchAnalyzeProtocol> {
                 .build();
     }
 
-    public static Behavior<SearchAnalyzeProtocol> create(FlowController flowController) {
+    public static Behavior<SearchAnalyzeProtocol> create(final FlowController flowController) {
         SearcherActor.flowController = flowController;
         return Behaviors.setup(SearcherActor::new);
     }
 
-    private Behavior<SearchAnalyzeProtocol> onSearchMessage(SearchAnalyzeProtocol.SearchMessage message) {
+    private Behavior<SearchAnalyzeProtocol> onSearchMessage(final SearchAnalyzeProtocol.SearchMessage message) {
         try {
             flowController.checkPaused();
             if(message.currentPath() != null){
-                File file = new File(message.currentPath());
-                PDDocument document = PDDocument.load(file);
-                PDFTextStripper pdfStripper = new PDFTextStripper();
-                String text = pdfStripper.getText(document);
+                final File file = new File(message.currentPath());
+                final PDDocument document = PDDocument.load(file);
+                final PDFTextStripper pdfStripper = new PDFTextStripper();
+                final String text = pdfStripper.getText(document);
                 if(text.contains(Data.word)) {
                     message.counter().tell(new CounterProtocol.IncrementMatchingMessage());
                 }

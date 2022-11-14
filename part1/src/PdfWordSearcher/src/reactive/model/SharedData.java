@@ -1,6 +1,6 @@
 package reactive.model;
 
-public class SharedData {
+public final class SharedData {
 
     private int foundPdf = 0;
     private int analyzedPdf = 0;

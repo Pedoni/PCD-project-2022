@@ -15,32 +15,32 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class AnalyzerAgent {
+public final class AnalyzerAgent {
 
     private final SharedData sd;
     private final String path;
     private final String word;
 
-    public AnalyzerAgent(SharedData sd, String path, String word) {
+    public AnalyzerAgent(final SharedData sd, final String path, final String word) {
         this.sd = sd;
         this.path = path;
         this.word = word;
     }
 
     public void start() {
-        Flowable<String> source = this.genHotStream();
+        final Flowable<String> source = this.genHotStream();
         source.onBackpressureDrop(v -> System.out.println("DROPPING: " + v))
                 .observeOn(Schedulers.computation())
                 .subscribe(this::searchInPdf, error -> System.out.println("ERROR: " + error));
-        sd.stopMaster();
+        this.sd.stopMaster();
 
     }
 
     private Flowable<String> genHotStream() {
-        Flowable<String> source = Flowable.create(emitter -> new Thread(() -> {
-            try (Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
+        final Flowable<String> source = Flowable.create(emitter -> new Thread(() -> {
+            try (final Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
                 walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
-                    sd.checkPaused();
+                    this.sd.checkPaused();
                     if (f.toString().endsWith("pdf")) {
                         this.sd.incrementFoundPdf();
                         emitter.onNext(f.toString());
@@ -50,25 +50,25 @@ public class AnalyzerAgent {
                 throw new RuntimeException(e);
             }
         }).start(), BackpressureStrategy.LATEST);
-        ConnectableFlowable<String> hotObservable = source.publish();
+        final ConnectableFlowable<String> hotObservable = source.publish();
         hotObservable.connect();
         return hotObservable;
     }
 
-    private void searchInPdf(String v) {
+    private void searchInPdf(final String v) {
         try {
-            sd.checkPaused();
+            this.sd.checkPaused();
             if(v != null){
-                File file = new File(v);
-                PDDocument document = PDDocument.load(file);
-                PDFTextStripper pdfStripper = new PDFTextStripper();
-                String text = pdfStripper.getText(document);
+                final File file = new File(v);
+                final PDDocument document = PDDocument.load(file);
+                final PDFTextStripper pdfStripper = new PDFTextStripper();
+                final String text = pdfStripper.getText(document);
                 if(text.contains(this.word)) {
                     sd.incrementOccurrences();
-                    System.out.println("TOTAL OCCURRENCES: " + sd.getMatchingPdf());
+                    System.out.println("TOTAL OCCURRENCES: " + this.sd.getMatchingPdf());
                 }
-                sd.incrementAnalyzedPdf();
-                System.out.println("ANALYZED PDFs: " + sd.getAnalyzedPdf());
+                this.sd.incrementAnalyzedPdf();
+                System.out.println("ANALYZED PDFs: " + this.sd.getAnalyzedPdf());
                 document.close();
             }
         } catch (Exception e) {

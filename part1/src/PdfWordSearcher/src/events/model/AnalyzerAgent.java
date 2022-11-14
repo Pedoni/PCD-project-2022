@@ -11,20 +11,20 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class AnalyzerAgent extends AbstractVerticle {
+public final class AnalyzerAgent extends AbstractVerticle {
 
     private final FlowController fc;
 
-    public AnalyzerAgent(FlowController fc) {
+    public AnalyzerAgent(final FlowController fc) {
         this.fc = fc;
     }
 
     @Override
     public void start() {
         final EventBus eb = getVertx().eventBus();
-        try (Stream<Path> walkStream = Files.walk(Paths.get(Data.path))) {
+        try (final Stream<Path> walkStream = Files.walk(Paths.get(Data.path))) {
             walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
-                fc.checkPaused();
+                this.fc.checkPaused();
                 if (f.toString().endsWith("pdf")) {
                     eb.publish("found", true);
                     eb.publish( "queue", f.toString());
@@ -35,7 +35,7 @@ public class AnalyzerAgent extends AbstractVerticle {
         }
         eb.publish("masterfinished", true);
         try {
-            vertx.undeploy(this.deploymentID());
+            this.vertx.undeploy(this.deploymentID());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

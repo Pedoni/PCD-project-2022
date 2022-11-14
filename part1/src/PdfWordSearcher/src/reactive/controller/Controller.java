@@ -1,12 +1,11 @@
 package reactive.controller;
 
-import io.vertx.core.Vertx;
 import reactive.model.AnalyzerAgent;
 import reactive.model.SharedData;
 import reactive.model.UpdateGui;
 import reactive.view.View;
 
-public class Controller {
+public final class Controller {
 
     private SharedData sd;
     private View view;
@@ -15,11 +14,11 @@ public class Controller {
         this.sd = new SharedData();
     }
 
-    public void setView(View view) {
+    public void setView(final View view) {
         this.view = view;
     }
 
-    public void notifyStarted(String path, String word) {
+    public void notifyStarted(final String path, final String word) {
         new UpdateGui(sd, view).start();
         new AnalyzerAgent(sd, path, word).start();
     }

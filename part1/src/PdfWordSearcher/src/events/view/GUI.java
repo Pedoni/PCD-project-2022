@@ -10,7 +10,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.File;
 
-public class GUI extends JFrame  implements ActionListener {
+public final class GUI extends JFrame  implements ActionListener {
 
     private final JButton start;
     private final JButton pause;
@@ -29,18 +29,18 @@ public class GUI extends JFrame  implements ActionListener {
         setTitle("PDF Searcher");
         setSize(400,240);
         this.controller = controller;
-        data = new JTextArea(3, 20);
-        data.setEditable(false);
-        data.setText("");
-        selectedDir = new JTextField();
-        selectedDir.setEditable(false);
-        chooseDir = new JButton("Select directory");
-        start = new JButton("Start");
-        start.setEnabled(false);
-        pause = new JButton("Pause");
-        pause.setEnabled(false);
-        resume = new JButton("Resume");
-        resume.setEnabled(false);
+        this.data = new JTextArea(3, 20);
+        this.data.setEditable(false);
+        this.data.setText("");
+        this.selectedDir = new JTextField();
+        this.selectedDir.setEditable(false);
+        this.chooseDir = new JButton("Select directory");
+        this.start = new JButton("Start");
+        this.start.setEnabled(false);
+        this.pause = new JButton("Pause");
+        this.pause.setEnabled(false);
+        this.resume = new JButton("Resume");
+        this.resume.setEnabled(false);
 
         final Container cp = getContentPane();
         final JPanel panel = new JPanel();
@@ -84,7 +84,7 @@ public class GUI extends JFrame  implements ActionListener {
         this.controller.getEventBus().consumer("analyzed", message -> {
             this.analyzed += 1;
             this.updateData();
-            if ((this.found == this.analyzed) && !isMasterRunning) {
+            if ((this.found == this.analyzed) && !this.isMasterRunning) {
                 this.controller.resetData();
                 this.resetState();
             }
@@ -94,17 +94,16 @@ public class GUI extends JFrame  implements ActionListener {
             this.matching += 1;
             this.updateData();
         });
-
-        chooseDir.addActionListener(this);
-        start.addActionListener(this);
-        pause.addActionListener(this);
-        resume.addActionListener(this);
+        this.chooseDir.addActionListener(this);
+        this.start.addActionListener(this);
+        this.pause.addActionListener(this);
+        this.resume.addActionListener(this);
     }
 
     @Override
     public void actionPerformed(final ActionEvent e) {
         final Object source = e.getSource();
-        if (source == chooseDir) {
+        if (source == this.chooseDir) {
             final JFileChooser fileChooser = new JFileChooser();
 
             fileChooser.setCurrentDirectory(new File("."));
@@ -115,25 +114,26 @@ public class GUI extends JFrame  implements ActionListener {
             final int code = fileChooser.showOpenDialog(this);
             if (code == JFileChooser.APPROVE_OPTION) {
                 final File f = fileChooser.getSelectedFile();
-                selectedDirPath = f.getAbsolutePath();
-                selectedDir.setText("..." + selectedDirPath.substring(selectedDirPath.length() - 20));
-                start.setEnabled(true);
+                this.selectedDirPath = f.getAbsolutePath();
+                this.selectedDir.setText("..." + this.selectedDirPath.substring(this.selectedDirPath.length() - 20));
+                this.start.setEnabled(true);
             }
-        } else if (source == start){
-            data.setText("");
-            controller.resetData();
-            controller.notifyStarted(selectedDirPath, "Ricci");
-            resume.setEnabled(false);
-            pause.setEnabled(true);
-            start.setEnabled(false);
-        } else if (source == pause){
-            controller.notifyPaused();
-            pause.setEnabled(false);
-            resume.setEnabled(true);
-        } else if (source == resume){
-            controller.notifyResumed();
-            pause.setEnabled(true);
-            resume.setEnabled(false);
+        } else if (source == this.start){
+            this.data.setText("");
+            this.controller.resetData();
+            this.controller.notifyStarted(this.selectedDirPath, "Ricci");
+            this.chooseDir.setEnabled(false);
+            this.resume.setEnabled(false);
+            this.pause.setEnabled(true);
+            this.start.setEnabled(false);
+        } else if (source == this.pause){
+            this.controller.notifyPaused();
+            this.pause.setEnabled(false);
+            this.resume.setEnabled(true);
+        } else if (source == this.resume){
+            this.controller.notifyResumed();
+            this.pause.setEnabled(true);
+            this.resume.setEnabled(false);
         }
     }
 
@@ -146,16 +146,17 @@ public class GUI extends JFrame  implements ActionListener {
                 "Analyzed PDFs: " + this.analyzed + "\n" +
                 "Matching PDFs: " + this.matching + "\n" +
                 "---------------------\n";
-            data.setText(text);
+            this.data.setText(text);
         });
     }
 
     private void resetState() {
         SwingUtilities.invokeLater(()-> {
-            start.setEnabled(true);
-            pause.setEnabled(false);
-            resume.setEnabled(false);
-            isMasterRunning = true;
+            this.chooseDir.setEnabled(true);
+            this.start.setEnabled(true);
+            this.pause.setEnabled(false);
+            this.resume.setEnabled(false);
+            this.isMasterRunning = true;
             this.found = 0;
             this.analyzed = 0;
             this.matching = 0;

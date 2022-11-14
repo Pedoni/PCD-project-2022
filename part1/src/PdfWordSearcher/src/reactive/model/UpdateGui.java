@@ -2,7 +2,7 @@ package reactive.model;
 
 import reactive.view.View;
 
-public class UpdateGui extends Thread {
+public final class UpdateGui extends Thread {
 
     private final SharedData sd;
     private final View view;

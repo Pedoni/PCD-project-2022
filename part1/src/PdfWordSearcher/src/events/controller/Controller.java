@@ -9,16 +9,16 @@ import io.vertx.core.eventbus.EventBus;
 
 import java.util.stream.Stream;
 
-public class Controller {
+public final class Controller {
 
     private FlowController fc;
-    private Vertx vertx;
-    private EventBus eb;
+    private final Vertx vertx;
+    private final EventBus eb;
 
     public Controller() {
         this.fc = new FlowController();
         this.vertx = Vertx.vertx(new VertxOptions().setWorkerPoolSize(Runtime.getRuntime().availableProcessors()));
-        this.eb = vertx.eventBus();
+        this.eb = this.vertx.eventBus();
     }
 
     public EventBus getEventBus() {
@@ -28,8 +28,8 @@ public class Controller {
     public void notifyStarted(final String path, final String word) {
         Data.word = word;
         Data.path = path;
-        vertx.deployVerticle(new AnalyzerAgent(fc));
-        vertx.deployVerticle(new SearcherAgent(fc));
+        this.vertx.deployVerticle(new AnalyzerAgent(this.fc));
+        this.vertx.deployVerticle(new SearcherAgent(this.fc));
     }
 
     public void notifyPaused() {

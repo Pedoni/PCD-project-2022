@@ -10,7 +10,7 @@ import akka.actor.typed.javadsl.ActorContext;
 import akka.actor.typed.javadsl.Behaviors;
 import akka.actor.typed.javadsl.Receive;
 
-public class CounterActor extends AbstractBehavior<CounterProtocol> {
+public final class CounterActor extends AbstractBehavior<CounterProtocol> {
 
     private static ActorRef<SearchAnalyzeProtocol> viewer;
     private static ActorRef<PerformanceProtocol> performer;
@@ -19,12 +19,12 @@ public class CounterActor extends AbstractBehavior<CounterProtocol> {
     private int analyzed;
     private boolean isMasterFinished;
 
-    public CounterActor(ActorContext<CounterProtocol> context) {
+    public CounterActor(final ActorContext<CounterProtocol> context) {
         super(context);
-        found = 0;
-        matching = 0;
-        analyzed = 0;
-        isMasterFinished = false;
+        this.found = 0;
+        this.matching = 0;
+        this.analyzed = 0;
+        this.isMasterFinished = false;
     }
 
     @Override
@@ -38,8 +38,8 @@ public class CounterActor extends AbstractBehavior<CounterProtocol> {
     }
 
     public static Behavior<CounterProtocol> create(
-            ActorRef<SearchAnalyzeProtocol> viewer,
-            ActorRef<PerformanceProtocol> performer
+        final ActorRef<SearchAnalyzeProtocol> viewer,
+        final ActorRef<PerformanceProtocol> performer
     ) {
         if (viewer != null)
             CounterActor.viewer = viewer;
@@ -48,13 +48,13 @@ public class CounterActor extends AbstractBehavior<CounterProtocol> {
         return Behaviors.setup(CounterActor::new);
     }
 
-    private Behavior<CounterProtocol> onFinish(CounterProtocol.Finish message) {
+    private Behavior<CounterProtocol> onFinish(final CounterProtocol.Finish message) {
         this.isMasterFinished = true;
         return this;
     }
 
     private Behavior<CounterProtocol> onIncrementFoundMessage(
-            CounterProtocol.IncrementFoundMessage message) {
+            final CounterProtocol.IncrementFoundMessage message) {
         this.found++;
         if (viewer != null)
             viewer.tell(new SearchAnalyzeProtocol.UpdateGuiMessage(found, matching, analyzed));
@@ -62,7 +62,7 @@ public class CounterActor extends AbstractBehavior<CounterProtocol> {
     }
 
     private Behavior<CounterProtocol> onIncrementMatchingMessage(
-            CounterProtocol.IncrementMatchingMessage message) {
+            final CounterProtocol.IncrementMatchingMessage message) {
         this.matching++;
         if (viewer != null)
             viewer.tell(new SearchAnalyzeProtocol.UpdateGuiMessage(found, matching, analyzed));
@@ -70,7 +70,7 @@ public class CounterActor extends AbstractBehavior<CounterProtocol> {
     }
 
     private Behavior<CounterProtocol> onIncrementAnalyzedMessage(
-            CounterProtocol.IncrementAnalyzedMessage message) {
+            final CounterProtocol.IncrementAnalyzedMessage message) {
         this.analyzed++;
         if (viewer != null) {
             viewer.tell(new SearchAnalyzeProtocol.UpdateGuiMessage(found, matching, analyzed));

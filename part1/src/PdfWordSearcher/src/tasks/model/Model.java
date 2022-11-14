@@ -17,7 +17,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.stream.Stream;
 
-public class Model {
+public final class Model {
 
     private final String path;
     private final String word;
@@ -25,10 +25,10 @@ public class Model {
     private final View view;
 
     public Model(
-        String path,
-        String word,
-        SharedData sd,
-        View view
+        final String path,
+        final String word,
+        final SharedData sd,
+        final View view
     ) {
         this.path = path;
         this.word = word;
@@ -37,27 +37,25 @@ public class Model {
     }
 
     public void start() {
-
-        final int nWorkers = sd.getWorkersNumber();
+        final int nWorkers = this.sd.getWorkersNumber();
         final ExecutorService executor = Executors.newFixedThreadPool(nWorkers);
         final List<Future<Void>> futures = new ArrayList<>();
 
         final Thread master = new Thread(() -> {
-            try (Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
+            try (final Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
                 walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
                     if (f.toString().endsWith("pdf")) {
-                        sd.incrementFoundPdf();
+                        this.sd.incrementFoundPdf();
                         futures.add(executor.submit(() -> {
-                            sd.checkPaused();
+                            this.sd.checkPaused();
                             try {
-                                File file = new File(f.toString());
-                                PDDocument document = PDDocument.load(file);
-                                PDFTextStripper pdfStripper = new PDFTextStripper();
-                                String text = pdfStripper.getText(document);
-                                if(text.contains(this.word)) {
-                                    sd.incrementOccurrences();
-                                }
-                                sd.incrementAnalyzedPdf();
+                                final File file = new File(f.toString());
+                                final PDDocument document = PDDocument.load(file);
+                                final PDFTextStripper pdfStripper = new PDFTextStripper();
+                                final String text = pdfStripper.getText(document);
+                                if(text.contains(this.word))
+                                    this.sd.incrementOccurrences();
+                                this.sd.incrementAnalyzedPdf();
                                 document.close();
                             } catch(Exception e) {
                                 throw new RuntimeException(e);
@@ -70,7 +68,6 @@ public class Model {
                 throw new RuntimeException(e);
             }
             System.out.println("Master finished");
-
             try {
                 futures.forEach(f -> {
                     try {
@@ -79,13 +76,12 @@ public class Model {
                         throw new RuntimeException(e);
                     }
                 });
-                sd.closeAnalysis();
+                this.sd.closeAnalysis();
                 executor.shutdown();
             } finally {
                 executor.shutdownNow();
             }
-
-            sd.stopMaster();
+            this.sd.stopMaster();
         });
         master.start();
     }

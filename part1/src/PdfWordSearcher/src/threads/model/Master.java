@@ -6,19 +6,20 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
-public class Master extends Thread {
+public final class Master extends Thread {
 
     private final SharedData sd;
     private final String path;
 
-    public Master(SharedData sd, String path) {
+    public Master(final SharedData sd, final String path) {
         this.sd = sd;
         this.path = path;
     }
 
     public void run() {
-        try (Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
+        try (final Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
             walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
+                sd.checkPaused();
                 if (f.toString().endsWith("pdf")) {
                     sd.incrementFoundPdf();
                     sd.addToQueue(f.toString());

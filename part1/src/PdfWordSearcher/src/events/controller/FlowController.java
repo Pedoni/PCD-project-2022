@@ -1,6 +1,6 @@
 package events.controller;
 
-public class FlowController {
+public final class FlowController {
 
     private boolean searchPaused = false;
 
