@@ -24,19 +24,17 @@ public final class AnalyzerAgent extends AbstractVerticle {
         final EventBus eb = getVertx().eventBus();
         try (final Stream<Path> walkStream = Files.walk(Paths.get(Data.path))) {
             walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
-                System.out.println("Thread attivi: " + Thread.activeCount());
                 this.fc.checkPaused();
                 if (f.toString().endsWith("pdf")) {
-                    eb.publish("found", true);
-                    eb.publish( "queue", f.toString());
+                    eb.send("found", true);
+                    eb.send( "queue", f.toString());
                 }
             });
         } catch (IOException e){
             throw new RuntimeException(e);
         }
-        eb.publish("masterfinished", true);
+        eb.send("masterfinished", true);
         try {
-            System.out.println("Master finished");
             this.vertx.undeploy(this.deploymentID());
         } catch (Exception e) {
             throw new RuntimeException(e);

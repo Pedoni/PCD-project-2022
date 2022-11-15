@@ -1,7 +1,6 @@
 package tasks;
 
 import tasks.controller.Controller;
-import tasks.model.SharedData;
 import tasks.view.View;
 
 public final class Main {

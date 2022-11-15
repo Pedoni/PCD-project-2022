@@ -47,7 +47,7 @@ public final class AnalyzerAgent {
                     }
                 });
                 emitter.onComplete();
-            } catch (IOException e){
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         }).start(), BackpressureStrategy.LATEST);

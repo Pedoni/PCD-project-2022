@@ -2,7 +2,6 @@ package tasks.controller;
 
 import tasks.model.Model;
 import tasks.model.SharedData;
-import tasks.model.UpdateGui;
 import tasks.view.View;
 
 public final class Controller {
@@ -19,8 +18,7 @@ public final class Controller {
     }
 
     public void notifyStarted(final String path, final String word) {
-        new UpdateGui(this.sd, this.view).start();
-        new Model(path, word, this.sd).start();
+        new Model(path, word, this.sd, this.view).start();
     }
 
     public void notifyPaused() {

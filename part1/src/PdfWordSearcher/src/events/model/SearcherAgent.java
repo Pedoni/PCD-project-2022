@@ -22,8 +22,8 @@ public final class SearcherAgent extends AbstractVerticle {
     @Override
     public void start() {
         final EventBus eb = getVertx().eventBus();
-        eb.<String>consumer("queue", message -> vertx.executeBlocking(handler -> {
-            System.out.println("Thread attivi: " + Thread.activeCount());
+        eb.<String>consumer("queue", message -> {
+            System.out.println("Searcher consuma " + message.body());
             this.fc.checkPaused();
             try {
                 if (message.body() != null) {
@@ -42,7 +42,7 @@ public final class SearcherAgent extends AbstractVerticle {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-        }));
+        });
         vertx.undeploy(this.deploymentID());
     }
 

@@ -22,15 +22,13 @@ public final class Model {
     private final String path;
     private final String word;
     private final SharedData sd;
+    private View view;
 
-    public Model(
-        final String path,
-        final String word,
-        final SharedData sd
-    ) {
+    public Model(final String path, final String word, final SharedData sd, final View view) {
         this.path = path;
         this.word = word;
         this.sd = sd;
+        this.view = view;
     }
 
     public void start() {
@@ -38,7 +36,7 @@ public final class Model {
         final ExecutorService executor = Executors.newFixedThreadPool(nWorkers);
         final List<Future<Void>> futures = new ArrayList<>();
 
-        final Thread master = new Thread(() -> {
+        new Thread(() -> {
             try (final Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
                 walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
                     if (f.toString().endsWith("pdf")) {
@@ -65,7 +63,6 @@ public final class Model {
             } catch (IOException e){
                 throw new RuntimeException(e);
             }
-            System.out.println("Master finished");
             try {
                 futures.forEach(f -> {
                     try {
@@ -80,7 +77,22 @@ public final class Model {
                 executor.shutdownNow();
             }
             this.sd.stopMaster();
-        });
-        master.start();
+        }).start();
+
+        new Thread(() -> {
+            while(!this.sd.isAnalysisClosed()) {
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                this.view.updateData(
+                        this.sd.getFoundPdf(),
+                        this.sd.getAnalyzedPdf(),
+                        this.sd.getMatchingPdf()
+                );
+            }
+            this.view.resetState();
+        }).start();
     }
 }

@@ -1,28 +1,24 @@
 package events.controller;
 
-import events.model.*;
-import events.view.View;
+import events.model.AnalyzerAgent;
+import events.model.SearcherAgent;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
 import io.vertx.core.eventbus.EventBus;
 
-import java.util.stream.Stream;
-
 public final class Controller {
 
     private FlowController fc;
     private final Vertx vertx;
-    private final EventBus eb;
 
     public Controller() {
         this.fc = new FlowController();
         this.vertx = Vertx.vertx(new VertxOptions().setWorkerPoolSize(Runtime.getRuntime().availableProcessors()));
-        this.eb = this.vertx.eventBus();
     }
 
     public EventBus getEventBus() {
-        return this.eb;
+        return this.vertx.eventBus();
     }
 
     public void notifyStarted(final String path, final String word) {
