@@ -14,7 +14,6 @@ import java.io.IOException;
 public final class SearcherAgent extends AbstractVerticle {
 
     private final FlowController fc;
-    private int blabla = 0;
 
     public SearcherAgent(final FlowController fc) {
         this.fc = fc;
@@ -24,8 +23,7 @@ public final class SearcherAgent extends AbstractVerticle {
     public void start() {
         final EventBus eb = getVertx().eventBus();
         eb.<String>consumer("queue", message -> vertx.executeBlocking(handler -> {
-            System.out.println("INIZIO CONSUMER QUEUE: " + blabla);
-            blabla++;
+            System.out.println("Thread attivi: " + Thread.activeCount());
             this.fc.checkPaused();
             try {
                 if (message.body() != null) {
@@ -44,7 +42,6 @@ public final class SearcherAgent extends AbstractVerticle {
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
-            System.out.println("FINE CONSUMER QUEUE: " + blabla);
         }));
         vertx.undeploy(this.deploymentID());
     }

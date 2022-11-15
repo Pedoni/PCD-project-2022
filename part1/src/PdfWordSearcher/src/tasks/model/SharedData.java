@@ -7,7 +7,6 @@ public final class SharedData {
     private int matchingPdf = 0;
     private boolean masterRunning = true;
     private boolean searchPaused = false;
-    private final int nWorkers = Runtime.getRuntime().availableProcessors() + 1;
     private boolean isAnalysisClosed = false;
 
 
@@ -21,10 +20,6 @@ public final class SharedData {
 
     public synchronized void stopMaster() {
         this.masterRunning = false;
-    }
-
-    public synchronized int getWorkersNumber() {
-        return this.nWorkers;
     }
 
     public synchronized boolean isAnalysisClosed() {

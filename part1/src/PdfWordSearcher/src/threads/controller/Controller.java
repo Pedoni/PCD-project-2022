@@ -1,16 +1,22 @@
 package threads.controller;
 
-import threads.model.Model;
+import threads.model.Master;
 import threads.model.SharedData;
+import threads.model.Worker;
 import threads.view.View;
+
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public final class Controller {
 
     private SharedData sd;
     private View view;
+    private final int nWorkers;
 
     public Controller() {
         this.sd = new SharedData();
+        this.nWorkers = Runtime.getRuntime().availableProcessors();
     }
 
     public void setView(final View view) {
@@ -18,7 +24,26 @@ public final class Controller {
     }
 
     public void notifyStarted(final String path, final String word) {
-        new Model(path, word, this.sd, this.view).start();
+        final BlockingQueue<String> queue = new LinkedBlockingQueue<>(this.nWorkers);
+        new Master(this.sd, path, queue).start();
+        for(int i = 0; i < this.nWorkers; i++){
+            new Worker(this.sd, word, queue).start();
+        }
+        new Thread(() -> {
+            while(this.sd.getClosedWorkers() < this.nWorkers) {
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+                this.view.updateData(
+                        this.sd.getFoundPdf(),
+                        this.sd.getAnalyzedPdf(),
+                        this.sd.getMatchingPdf()
+                );
+            }
+            this.view.resetState();
+        }).start();
     }
 
     public void notifyPaused() {

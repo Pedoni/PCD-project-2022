@@ -5,8 +5,6 @@ import events.view.View;
 
 public final class Main {
     public static void main(String[] args) {
-        final Controller controller = new Controller();
-        final View view = new View(controller);
-        view.display();
+        new View(new Controller()).display();
     }
 }

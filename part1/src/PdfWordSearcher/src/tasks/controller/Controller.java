@@ -20,7 +20,7 @@ public final class Controller {
 
     public void notifyStarted(final String path, final String word) {
         new UpdateGui(this.sd, this.view).start();
-        new Model(path, word, this.sd, this.view).start();
+        new Model(path, word, this.sd).start();
     }
 
     public void notifyPaused() {

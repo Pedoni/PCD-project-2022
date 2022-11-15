@@ -22,22 +22,19 @@ public final class Model {
     private final String path;
     private final String word;
     private final SharedData sd;
-    private final View view;
 
     public Model(
         final String path,
         final String word,
-        final SharedData sd,
-        final View view
+        final SharedData sd
     ) {
         this.path = path;
         this.word = word;
         this.sd = sd;
-        this.view = view;
     }
 
     public void start() {
-        final int nWorkers = this.sd.getWorkersNumber();
+        final int nWorkers = Runtime.getRuntime().availableProcessors();
         final ExecutorService executor = Executors.newFixedThreadPool(nWorkers);
         final List<Future<Void>> futures = new ArrayList<>();
 
@@ -53,8 +50,9 @@ public final class Model {
                                 final PDDocument document = PDDocument.load(file);
                                 final PDFTextStripper pdfStripper = new PDFTextStripper();
                                 final String text = pdfStripper.getText(document);
-                                if(text.contains(this.word))
+                                if(text.contains(this.word)) {
                                     this.sd.incrementOccurrences();
+                                }
                                 this.sd.incrementAnalyzedPdf();
                                 document.close();
                             } catch(Exception e) {
