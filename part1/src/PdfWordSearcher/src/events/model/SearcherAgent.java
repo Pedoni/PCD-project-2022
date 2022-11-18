@@ -23,25 +23,26 @@ public final class SearcherAgent extends AbstractVerticle {
     public void start() {
         final EventBus eb = getVertx().eventBus();
         eb.<String>consumer("queue", message -> {
-            System.out.println("Searcher consuma " + message.body());
             this.fc.checkPaused();
-            try {
-                if (message.body() != null) {
-                    final File file = new File(message.body());
-                    final PDDocument document = PDDocument.load(file);
-                    final AccessPermission ap = document.getCurrentAccessPermission();
-                    if (!ap.canExtractContent())
-                        throw new IOException("You do not have permission to extract text");
-                    final PDFTextStripper pdfStripper = new PDFTextStripper();
-                    final String text = pdfStripper.getText(document);
-                    if (text.contains(Data.word))
-                        eb.publish("matching", true);
-                    eb.publish("analyzed", true);
-                    document.close();
+            vertx.executeBlocking(promise -> {
+                try {
+                    if (message.body() != null) {
+                        final File file = new File(message.body());
+                        final PDDocument document = PDDocument.load(file);
+                        final AccessPermission ap = document.getCurrentAccessPermission();
+                        if (!ap.canExtractContent())
+                            throw new IOException("You do not have permission to extract text");
+                        final PDFTextStripper pdfStripper = new PDFTextStripper();
+                        final String text = pdfStripper.getText(document);
+                        if (text.contains(Data.word))
+                            eb.publish("matching", true);
+                        eb.publish("analyzed", true);
+                        document.close();
+                    }
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
                 }
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+            });
         });
         vertx.undeploy(this.deploymentID());
     }
