@@ -5,7 +5,6 @@ public final class FlowController {
     private boolean searchPaused = false;
 
     public synchronized void checkPaused() {
-
         if(this.isSearchPaused()){
             try {
                 wait();

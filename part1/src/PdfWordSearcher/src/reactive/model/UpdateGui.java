@@ -14,6 +14,7 @@ public final class UpdateGui extends Thread {
 
     public void run() {
         while(!sd.isAnalysisClosed()) {
+            System.out.println("ANALYSYS CLOSED? " + sd.isAnalysisClosed());
             try {
                 Thread.sleep(50);
             } catch (InterruptedException e) {

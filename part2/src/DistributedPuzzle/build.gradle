@@ -18,6 +18,8 @@ sourceSets {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.0'
+    implementation platform("com.typesafe.akka:akka-bom_2.13:2.7.0")
+    implementation "com.typesafe.akka:akka-cluster-typed_2.13"
 }
 
 test {

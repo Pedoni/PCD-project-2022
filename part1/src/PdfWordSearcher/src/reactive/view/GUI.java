@@ -125,6 +125,7 @@ public final class GUI extends JFrame implements ActionListener {
     }
 
     public void resetState() {
+        System.out.println("CHIAMATO RESET STATE NELLA GUI");
         SwingUtilities.invokeLater(()-> {
             this.chooseDir.setEnabled(true);
             this.start.setEnabled(true);

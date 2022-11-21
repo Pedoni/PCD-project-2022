@@ -1,7 +1,6 @@
 package events.controller;
 
 import events.model.AnalyzerAgent;
-import events.model.SearcherAgent;
 import io.vertx.core.DeploymentOptions;
 import io.vertx.core.Vertx;
 import io.vertx.core.VertxOptions;
@@ -22,13 +21,9 @@ public final class Controller {
     }
 
     public void notifyStarted(final String path, final String word) {
-        Data.word = word;
-        Data.path = path;
-        final DeploymentOptions workerOptions = new DeploymentOptions()
-                .setWorkerPoolSize(8)
-                .setWorker(true);
-        this.vertx.deployVerticle(new AnalyzerAgent(this.fc));
-        this.vertx.deployVerticle(new SearcherAgent(this.fc), workerOptions);
+        final AnalyzerAgent analyzer = new AnalyzerAgent(this.fc, path, word);
+        this.vertx.deployVerticle(analyzer);
+        getEventBus().publish("next", true);
     }
 
     public void notifyPaused() {

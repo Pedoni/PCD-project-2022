@@ -5,8 +5,8 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.server.UnicastRemoteObject;
         
 public class Test01_Server  {
-                
-    public static void main(String args[]) {
+
+    public static void main(String[] args) {
         
         try {
             HelloService helloObj = new HelloServiceImpl();
@@ -14,7 +14,7 @@ public class Test01_Server  {
 
             Counter count = new CounterImpl(0);
             Counter countStub = (Counter) UnicastRemoteObject.exportObject(count, 0);
-            
+
             // Bind the remote object's stub in the registry
             Registry registry = LocateRegistry.getRegistry();
             

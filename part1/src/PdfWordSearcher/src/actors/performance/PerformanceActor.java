@@ -3,10 +3,8 @@ package actors.performance;
 import actors.actors.AnalyzerActor;
 import actors.actors.CounterActor;
 import actors.controller.Data;
-import actors.controller.FlowController;
 import actors.protocols.CounterProtocol;
 import actors.protocols.SearchAnalyzeProtocol;
-import akka.actor.typed.ActorRef;
 import akka.actor.typed.ActorSystem;
 import akka.actor.typed.Behavior;
 import akka.actor.typed.javadsl.AbstractBehavior;
@@ -46,12 +44,12 @@ public final class PerformanceActor extends AbstractBehavior<PerformanceProtocol
         }
 
         final ActorSystem<SearchAnalyzeProtocol> analyzer =
-                ActorSystem.create(AnalyzerActor.create(new FlowController()), "analyzer");
+                ActorSystem.create(AnalyzerActor.create(), "analyzer");
 
         final ActorSystem<CounterProtocol> counter =
                 ActorSystem.create(CounterActor.create(null, getContext().getSelf()), "counter");
 
-        analyzer.tell(new SearchAnalyzeProtocol.BootMessage(counter));
+        analyzer.tell(new SearchAnalyzeProtocol.BootMessage(analyzer, counter));
         this.chrono.start();
         return this;
     }
