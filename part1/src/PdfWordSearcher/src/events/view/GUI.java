@@ -72,7 +72,12 @@ public final class GUI extends JFrame  implements ActionListener {
             }
         });
 
-        this.controller.getEventBus().consumer("masterfinished", message -> this.isMasterRunning = false);
+        this.controller.getEventBus().consumer("masterfinished", message -> {
+            this.isMasterRunning = false;
+            if (this.found == this.analyzed) {
+                this.resetState();
+            }
+        });
 
         this.controller.getEventBus().consumer("found", message -> {
             this.found += 1;
@@ -82,8 +87,8 @@ public final class GUI extends JFrame  implements ActionListener {
         this.controller.getEventBus().consumer("analyzed", message -> {
             this.analyzed += 1;
             this.updateData();
+            System.out.println("ANALYZED: " + analyzed + ", FOUND: " + found + ", MASTER RUN: " + isMasterRunning);
             if ((this.found == this.analyzed) && !this.isMasterRunning) {
-                this.controller.resetData();
                 this.resetState();
             }
         });
@@ -118,7 +123,6 @@ public final class GUI extends JFrame  implements ActionListener {
             }
         } else if (source == this.start){
             this.data.setText("");
-            this.controller.resetData();
             this.controller.notifyStarted(this.selectedDirPath, "Ricci");
             this.chooseDir.setEnabled(false);
             this.resume.setEnabled(false);
@@ -149,6 +153,7 @@ public final class GUI extends JFrame  implements ActionListener {
     }
 
     private void resetState() {
+        System.out.println("CHIAMATO RESET DA GUI");
         SwingUtilities.invokeLater(()-> {
             this.chooseDir.setEnabled(true);
             this.start.setEnabled(true);

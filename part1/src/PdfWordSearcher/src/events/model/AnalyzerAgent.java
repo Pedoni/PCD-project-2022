@@ -1,6 +1,5 @@
 package events.model;
 
-import events.controller.FlowController;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.eventbus.EventBus;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -17,12 +16,11 @@ import java.util.Iterator;
 public final class AnalyzerAgent extends AbstractVerticle {
 
     private Iterator<Path> walkStream;
-    private final FlowController fc;
     private final String path;
     private final String word;
+    private boolean searchPaused = false;
 
-    public AnalyzerAgent(final FlowController fc, String path, String word) {
-        this.fc = fc;
+    public AnalyzerAgent(String path, String word) {
         this.path = path;
         this.word = word;
     }
@@ -35,80 +33,46 @@ public final class AnalyzerAgent extends AbstractVerticle {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-
+        eb.consumer("pause", handler -> this.searchPaused = true);
+        eb.consumer("resume", handler -> this.searchPaused = false);
         eb.consumer("next", handler -> {
-            final Path p = walkStream.next();
-            if (p.toFile().isFile() && p.toString().endsWith(".pdf")) {
-                System.out.println("INIZIO");
-                eb.send("found", true);
-                vertx.executeBlocking(future -> {
-                    try {
-                        this.fc.checkPaused();
-                        final File file = new File(p.toString());
-                        final PDDocument document = PDDocument.load(file);
-                        final AccessPermission ap = document.getCurrentAccessPermission();
-                        if (!ap.canExtractContent())
-                            throw new IOException("You do not have permission to extract text");
-                        final PDFTextStripper pdfStripper = new PDFTextStripper();
-                        final String text = pdfStripper.getText(document);
-                        if (text.contains(word))
-                            eb.publish("matching", true);
-                        eb.publish("analyzed", true);
-                        document.close();
-                        future.complete();
-                    } catch (Exception e) {
-                        throw new RuntimeException(e);
-                    }
-                }, res -> System.out.println("Completata"));
-            }
-            if (!fc.isSearchPaused())
-                eb.send("next", true);
             if (!walkStream.hasNext()) {
                 eb.send("masterfinished", true);
                 this.vertx.undeploy(this.deploymentID());
-            }
-
-        });
-
-        /*
-        final EventBus eb = getVertx().eventBus();
-        try (final Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
-            walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
-                this.fc.checkPaused();
-                if (f.toString().endsWith("pdf")) {
+            } else {
+                final Path p = walkStream.next();
+                if (p.toFile().isFile() && p.toString().endsWith(".pdf")) {
                     eb.send("found", true);
-                    vertx.executeBlocking(future -> {
-                        try {
-                            this.fc.checkPaused();
-                            final File file = new File(f.toString());
-                            final PDDocument document = PDDocument.load(file);
-                            final AccessPermission ap = document.getCurrentAccessPermission();
-                            if (!ap.canExtractContent())
-                                throw new IOException("You do not have permission to extract text");
-                            final PDFTextStripper pdfStripper = new PDFTextStripper();
-                            final String text = pdfStripper.getText(document);
-                            if (text.contains(word))
-                                eb.publish("matching", true);
-                            eb.publish("analyzed", true);
-                            document.close();
-                            future.complete();
-                        } catch (Exception e) {
-                            throw new RuntimeException(e);
-                        }
-                    }, res -> System.out.println("Completata"));
+                    this.scanPdf(eb, p);
+                } else {
+                    eb.send("next", true);
                 }
-            });
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        eb.send("masterfinished", true);
-        try {
-            this.vertx.undeploy(this.deploymentID());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+            }
+        });
+    }
 
-         */
+    private void scanPdf(final EventBus eb, final Path p) {
+        vertx.executeBlocking(future -> {
+            try {
+                final File file = new File(p.toString());
+                final PDDocument document = PDDocument.load(file);
+                final AccessPermission ap = document.getCurrentAccessPermission();
+                if (!ap.canExtractContent())
+                    throw new IOException("You do not have permission to extract text");
+                final PDFTextStripper pdfStripper = new PDFTextStripper();
+                final String text = pdfStripper.getText(document);
+                if (text.contains(word))
+                    eb.publish("matching", true);
+                eb.publish("analyzed", true);
+                document.close();
+                future.complete();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        }, res -> {
+            if (!searchPaused)
+                eb.send("next", true);
+        });
     }
 
 }
