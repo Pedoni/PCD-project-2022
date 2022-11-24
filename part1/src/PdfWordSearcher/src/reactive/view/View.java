@@ -9,14 +9,6 @@ public final class View {
         this.gui = new GUI(controller);
     }
 
-    public void updateData(final int found, final int analyzed, final int matching) {
-        this.gui.updateData(found, analyzed, matching);
-    }
-
-    public void resetState() {
-        this.gui.resetState();
-    }
-
     public void display() {
         this.gui.display();
     }

@@ -1,6 +1,7 @@
 package reactive.view;
 
 import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.flowables.ConnectableFlowable;
 import reactive.controller.Controller;
 
 import javax.swing.*;
@@ -21,8 +22,11 @@ public final class GUI extends JFrame implements ActionListener {
     private String selectedDirPath;
     private final JTextArea data;
     private final Controller controller;
+    private int found = 0;
+    private int analyzed = 0;
+    private int matching = 0;
 
-    public GUI(final Controller controller){
+    public GUI(final Controller controller) {
         setTitle("PDF Searcher");
         setSize(400,240);
         this.controller = controller;
@@ -74,6 +78,18 @@ public final class GUI extends JFrame implements ActionListener {
         this.resume.addActionListener(this);
     }
 
+    private void workerExecution(boolean s) {
+        this.analyzed++;
+        if (s)
+            this.matching++;
+        this.updateData();
+    }
+
+    private void masterExecution(String s) {
+        this.found++;
+        this.updateData();
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         final Object src = e.getSource();
@@ -94,8 +110,9 @@ public final class GUI extends JFrame implements ActionListener {
             }
         } else if (src == this.start){
             this.data.setText("");
-            this.controller.resetData();
             this.controller.notifyStarted(this.selectedDirPath, "Ricci");
+            controller.getMasterStream().subscribe(this::masterExecution);
+            controller.getWorkerStream().subscribe(this::workerExecution, error -> {}, this::resetState);
             this.chooseDir.setEnabled(false);
             this.resume.setEnabled(false);
             this.pause.setEnabled(true);
@@ -111,7 +128,7 @@ public final class GUI extends JFrame implements ActionListener {
         }
     }
 
-    public void updateData(final int found, final int analyzed, final int matching) {
+    public void updateData() {
         SwingUtilities.invokeLater(()-> {
             final String text =
                 "Analyzing... \n" +
@@ -131,6 +148,9 @@ public final class GUI extends JFrame implements ActionListener {
             this.start.setEnabled(true);
             this.pause.setEnabled(false);
             this.resume.setEnabled(false);
+            this.found = 0;
+            this.analyzed = 0;
+            this.matching = 0;
         });
     }
 

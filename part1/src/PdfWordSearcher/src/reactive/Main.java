@@ -1,7 +1,6 @@
 package reactive;
 
 import reactive.controller.Controller;
-import reactive.model.SharedData;
 import reactive.view.View;
 
 public final class Main {

@@ -1,37 +1,40 @@
 package reactive.controller;
 
+import io.reactivex.rxjava3.core.Flowable;
 import reactive.model.AnalyzerAgent;
-import reactive.model.SharedData;
-import reactive.model.UpdateGui;
 import reactive.view.View;
 
 public final class Controller {
 
-    private SharedData sd;
     private View view;
+    private AnalyzerAgent analyzer;
 
     public Controller() {
-        this.sd = new SharedData();
+
     }
 
     public void setView(final View view) {
         this.view = view;
     }
 
+    public Flowable<String> getMasterStream() {
+        return analyzer.getMasterStream();
+    }
+
+    public Flowable<Boolean> getWorkerStream() {
+        return analyzer.getWorkerStream();
+    }
+
     public void notifyStarted(final String path, final String word) {
-        new UpdateGui(sd, view).start();
-        new AnalyzerAgent(sd, path, word).start();
+        this.analyzer = new AnalyzerAgent(path, word);
     }
 
     public void notifyPaused() {
-        this.sd.pauseSearch();
+        this.analyzer.pause();
     }
 
     public void notifyResumed() {
-        this.sd.resumeSearch();
+        this.analyzer.resume();
     }
 
-    public void resetData() {
-        this.sd = new SharedData();
-    }
 }

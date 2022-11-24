@@ -24,4 +24,5 @@ dependencies {
     implementation "com.typesafe.akka:akka-actor-typed_2.13"
     implementation 'org.slf4j:slf4j-api:2.0.3'
     implementation 'org.slf4j:slf4j-jdk14:2.0.3'
+    implementation "com.github.akarnokd:rxjava3-extensions:3.1.1"
 }
