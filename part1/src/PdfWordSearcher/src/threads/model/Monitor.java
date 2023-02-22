@@ -1,6 +1,6 @@
 package threads.model;
 
-public final class SharedData {
+public final class Monitor {
 
     private int foundPdf = 0;
     private int analyzedPdf = 0;

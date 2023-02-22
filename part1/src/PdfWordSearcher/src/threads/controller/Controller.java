@@ -1,7 +1,7 @@
 package threads.controller;
 
 import threads.model.Master;
-import threads.model.SharedData;
+import threads.model.Monitor;
 import threads.model.Worker;
 import threads.view.View;
 
@@ -10,13 +10,13 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public final class Controller {
 
-    private SharedData sd;
+    private Monitor sd;
     private View view;
     private final int nWorkers;
 
     public Controller() {
-        this.sd = new SharedData();
-        this.nWorkers = Runtime.getRuntime().availableProcessors();
+        this.sd = new Monitor();
+        this.nWorkers = Runtime.getRuntime().availableProcessors() + 1;
     }
 
     public void setView(final View view) {
@@ -55,6 +55,6 @@ public final class Controller {
     }
 
     public void resetData() {
-        this.sd = new SharedData();
+        this.sd = new Monitor();
     }
 }

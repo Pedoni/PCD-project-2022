@@ -22,7 +22,7 @@ public final class Model {
     private final String path;
     private final String word;
     private final SharedData sd;
-    private View view;
+    private final View view;
 
     public Model(final String path, final String word, final SharedData sd, final View view) {
         this.path = path;
@@ -32,7 +32,7 @@ public final class Model {
     }
 
     public void start() {
-        final int nWorkers = Runtime.getRuntime().availableProcessors();
+        final int nWorkers = Runtime.getRuntime().availableProcessors() + 1;
         final ExecutorService executor = Executors.newFixedThreadPool(nWorkers);
         final List<Future<Void>> futures = new ArrayList<>();
 

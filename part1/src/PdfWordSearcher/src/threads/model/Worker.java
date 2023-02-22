@@ -9,11 +9,11 @@ import java.util.concurrent.BlockingQueue;
 
 public final class Worker extends Thread {
 
-    private final SharedData sd;
+    private final Monitor sd;
     private final String word;
     private final BlockingQueue<String> queue;
 
-    public Worker(final SharedData sd, final String word, final BlockingQueue<String> queue) {
+    public Worker(final Monitor sd, final String word, final BlockingQueue<String> queue) {
         this.sd = sd;
         this.word = word;
         this.queue = queue;

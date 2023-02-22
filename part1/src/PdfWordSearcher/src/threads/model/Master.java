@@ -9,11 +9,11 @@ import java.util.stream.Stream;
 
 public final class Master extends Thread {
 
-    private final SharedData sd;
+    private final Monitor sd;
     private final String path;
     private final BlockingQueue<String> queue;
 
-    public Master(final SharedData sd, final String path, final BlockingQueue<String> queue) {
+    public Master(final Monitor sd, final String path, final BlockingQueue<String> queue) {
         this.sd = sd;
         this.path = path;
         this.queue = queue;

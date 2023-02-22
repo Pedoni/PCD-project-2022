@@ -1,7 +1,6 @@
 package threads;
 
 import threads.controller.Controller;
-import threads.model.SharedData;
 import threads.view.View;
 
 public final class Main {

@@ -53,7 +53,6 @@ public final class AnalyzerAgent extends AbstractVerticle {
 
     private void scanPdf(final EventBus eb, final Path p) {
         vertx.executeBlocking(future -> {
-            //System.out.println("Thread: " + Thread.currentThread().getName());
             try {
                 final File file = new File(p.toString());
                 final PDDocument document = PDDocument.load(file);
