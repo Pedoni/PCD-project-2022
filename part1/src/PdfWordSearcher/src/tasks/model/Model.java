@@ -41,23 +41,7 @@ public final class Model {
                 walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
                     if (f.toString().endsWith("pdf")) {
                         this.sd.incrementFoundPdf();
-                        futures.add(executor.submit(() -> {
-                            this.sd.checkPaused();
-                            try {
-                                final File file = new File(f.toString());
-                                final PDDocument document = PDDocument.load(file);
-                                final PDFTextStripper pdfStripper = new PDFTextStripper();
-                                final String text = pdfStripper.getText(document);
-                                if(text.contains(this.word)) {
-                                    this.sd.incrementOccurrences();
-                                }
-                                this.sd.incrementAnalyzedPdf();
-                                document.close();
-                            } catch(Exception e) {
-                                throw new RuntimeException(e);
-                            }
-                            return null;
-                        }));
+                        futures.add(executor.submit(new WordSearchTask(sd, f, word)));
                     }
                 });
             } catch (IOException e){
@@ -87,9 +71,9 @@ public final class Model {
                     throw new RuntimeException(e);
                 }
                 this.view.updateData(
-                        this.sd.getFoundPdf(),
-                        this.sd.getAnalyzedPdf(),
-                        this.sd.getMatchingPdf()
+                    this.sd.getFoundPdf(),
+                    this.sd.getAnalyzedPdf(),
+                    this.sd.getMatchingPdf()
                 );
             }
             this.view.resetState();
