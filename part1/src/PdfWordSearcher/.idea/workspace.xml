@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="Minor fixes">
+      <change beforePath="$PROJECT_DIR$/../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/Assignment-Single.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/dependencies-accessors/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileChanges/last-build.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/vcs-1/gc.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2H6CYPviqUkWi4WxjsPziIweUte" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emala/Desktop/PCD/Progetto/Assignment-Single/part1/src/PdfWordSearcher&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.folding&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="events" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\events2" />
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\threads_no_gui" />
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src" />
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\actors" />
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\reactive" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\events" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="events.controller" />
+      <recent name="actors.controller" />
+      <recent name="threads" />
+      <recent name="actors.model.controller" />
+      <recent name="actors.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.threads.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="actors.Main" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="actors.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="events.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="events.Main" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="events.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="reactive.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="reactive.Main" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="reactive.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tasks.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tasks.Main" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="threads.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="threads.Main" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="threads.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.threads.Main" />
+        <item itemvalue="Application.tasks.Main" />
+        <item itemvalue="Application.reactive.Main" />
+        <item itemvalue="Application.events.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="" />
+      <created>1667596198446</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667596198446</updated>
+      <workItem from="1669324053156" duration="68000" />
+      <workItem from="1669325793420" duration="140000" />
+      <workItem from="1669557714323" duration="80000" />
+      <workItem from="1670439779195" duration="357000" />
+      <workItem from="1670440423630" duration="693000" />
+      <workItem from="1670500438096" duration="1233000" />
+      <workItem from="1671984018503" duration="1300000" />
+      <workItem from="1673968302649" duration="45000" />
+      <workItem from="1675531121318" duration="1194000" />
+      <workItem from="1677085867104" duration="2029000" />
+      <workItem from="1677256736926" duration="191000" />
+      <workItem from="1677258398664" duration="19000" />
+    </task>
+    <task id="LOCAL-00001" summary="Migliorata GUI generale">
+      <created>1667925960874</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667925960874</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Finita parte 1 (threads) con gui">
+      <created>1667938756392</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667938756392</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Finiti executors e aggiunte parti Vert.x e RX">
+      <created>1668031260077</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668031260077</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Prima versione ad attori">
+      <created>1668165638323</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668165638323</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Completata versione attori, tranne pause/resume">
+      <created>1668203706464</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668203706464</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Aggiunto reset e pause/resume in actors, events e reactive&#10;&#10;Inoltre aggiunta anche base per parte 2 (programmazione distribuita)">
+      <created>1668261510526</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668261510526</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fixato events">
+      <created>1668349650989</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668349650989</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Cambiato controller in events">
+      <created>1668349691701</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668349691701</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Migliorato events">
+      <created>1668375068226</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668375068226</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Migliorie generali">
+      <created>1668450138793</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668450138793</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Migliorata versioni con thread, vertx e rx">
+      <created>1668464088028</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668464088028</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixato threads con BlockingQueue funzionante">
+      <created>1668542589681</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668542589681</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixato events">
+      <created>1668549779282</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668549779282</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Aggiunto executeblocking a events">
+      <created>1668762698696</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668762698696</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Finito actors, iniziato ad aggiustare events">
+      <created>1669068707221</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1669068707221</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Finito events">
+      <created>1669142219390</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1669142219390</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Finita parte 1">
+      <created>1669310353869</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669310353869</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Minor fixes">
+      <created>1677087578191</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1677087578191</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Migliorata GUI generale" />
+    <MESSAGE value="Finita parte 1 (threads) con gui" />
+    <MESSAGE value="Finiti executors e aggiunte parti Vert.x e RX" />
+    <MESSAGE value="Prima versione ad attori" />
+    <MESSAGE value="Completata versione attori, tranne pause/resume" />
+    <MESSAGE value="Aggiunto reset e pause/resume in actors, events e reactive&#10;&#10;Inoltre aggiunta anche base per parte 2 (programmazione distribuita)" />
+    <MESSAGE value="Cambiato controller in events" />
+    <MESSAGE value="Migliorato events" />
+    <MESSAGE value="Migliorie generali" />
+    <MESSAGE value="Migliorata versioni con thread, vertx e rx" />
+    <MESSAGE value="Fixato threads con BlockingQueue funzionante" />
+    <MESSAGE value="Fixato events" />
+    <MESSAGE value="Aggiunto executeblocking a events" />
+    <MESSAGE value="Finito actors, iniziato ad aggiustare events" />
+    <MESSAGE value="Finito events" />
+    <MESSAGE value="Finita parte 1" />
+    <MESSAGE value="Minor fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Minor fixes" />
+  </component>
+</project>
