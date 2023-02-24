@@ -25,7 +25,8 @@
 hs_err_pid*
 
 .idea/*
-.build/*
+build/*
+.gradle/*
 
 # User-specific stuff
 .idea/**/workspace.xml
