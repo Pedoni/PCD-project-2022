@@ -7,11 +7,11 @@ import java.io.File;
 import java.nio.file.Path;
 import java.util.concurrent.Callable;
 
-public class WordSearchTask implements Callable<Void> {
+public class WordSearchTask implements Callable<Integer> {
 
     private final SharedData sd;
-    private Path f;
-    private String word;
+    private final Path f;
+    private final String word;
 
     public WordSearchTask(SharedData sd, Path f, String word) {
         this.sd = sd;
@@ -20,21 +20,23 @@ public class WordSearchTask implements Callable<Void> {
     }
 
     @Override
-    public Void call() {
+    public Integer call() {
+        int count = 0;
         this.sd.checkPaused();
         try {
             final File file = new File(f.toString());
             final PDDocument document = PDDocument.load(file);
             final PDFTextStripper pdfStripper = new PDFTextStripper();
             final String text = pdfStripper.getText(document);
-            if(text.contains(this.word)) {
-                this.sd.incrementOccurrences();
+            if (text.contains(this.word)) {
+                //this.sd.incrementOccurrences();
+                count++;
             }
-            this.sd.incrementAnalyzedPdf();
+            //this.sd.incrementAnalyzedPdf();
             document.close();
         } catch(Exception e) {
             throw new RuntimeException(e);
         }
-        return null;
+        return count;
     }
 }
