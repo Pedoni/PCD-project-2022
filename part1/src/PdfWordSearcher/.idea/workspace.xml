@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="Cambiato gitignore" />
+    <list default="true" id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="Cambiato gitignore">
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -192,7 +194,7 @@
       <workItem from="1675531121318" duration="1194000" />
       <workItem from="1677085867104" duration="2029000" />
       <workItem from="1677256736926" duration="191000" />
-      <workItem from="1677258398664" duration="250000" />
+      <workItem from="1677258398664" duration="631000" />
     </task>
     <task id="LOCAL-00001" summary="Migliorata GUI generale">
       <created>1667925960874</created>
@@ -327,7 +329,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677258571159</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Cambiato gitignore">
+      <created>1677258794733</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1677258794733</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
