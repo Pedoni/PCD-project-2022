@@ -20,11 +20,8 @@ public final class Model {
     private final String word;
     private final SharedData sd;
     private final View view;
-
     private int foundPdf = 0;
-
     private int analyzedPdf = 0;
-
     private int matchingPdf = 0;
 
     public Model(final String path, final String word, final SharedData sd, final View view) {
