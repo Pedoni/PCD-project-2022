@@ -2,13 +2,9 @@ package tasks.model;
 
 public final class SharedData {
 
-    private boolean masterRunning = true;
     private boolean searchPaused = false;
     private boolean isAnalysisClosed = false;
 
-    public synchronized void stopMaster() {
-        this.masterRunning = false;
-    }
 
     public synchronized boolean isAnalysisClosed() {
         return this.isAnalysisClosed;

@@ -61,7 +61,6 @@ public final class Model {
             } finally {
                 executor.shutdownNow();
             }
-            this.sd.stopMaster();
         }).start();
 
         new Thread(() -> {
