@@ -1,7 +1,5 @@
 package reactive.view;
 
-import io.reactivex.rxjava3.core.Flowable;
-import io.reactivex.rxjava3.flowables.ConnectableFlowable;
 import reactive.controller.Controller;
 
 import javax.swing.*;

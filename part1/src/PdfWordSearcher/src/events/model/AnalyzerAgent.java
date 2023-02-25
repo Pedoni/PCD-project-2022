@@ -57,12 +57,14 @@ public final class AnalyzerAgent extends AbstractVerticle {
                 final File file = new File(p.toString());
                 final PDDocument document = PDDocument.load(file);
                 final AccessPermission ap = document.getCurrentAccessPermission();
-                if (!ap.canExtractContent())
+                if (!ap.canExtractContent()) {
                     throw new IOException("You do not have permission to extract text");
+                }
                 final PDFTextStripper pdfStripper = new PDFTextStripper();
                 final String text = pdfStripper.getText(document);
-                if (text.contains(word))
+                if (text.contains(word)) {
                     eb.publish("matching", true);
+                }
                 eb.publish("analyzed", true);
                 document.close();
                 future.complete();
@@ -70,8 +72,9 @@ public final class AnalyzerAgent extends AbstractVerticle {
                 throw new RuntimeException(e);
             }
         }, res -> {
-            if (!searchPaused)
+            if (!searchPaused) {
                 eb.send("next", true);
+            }
         });
     }
 

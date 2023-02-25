@@ -17,8 +17,8 @@ public final class AnalyzerAgent {
 
     private final String path;
     private final String word;
-    private Flowable<String> source;
-    private Flowable<Boolean> analyzed;
+    private final Flowable<String> source;
+    private final Flowable<Boolean> analyzed;
     private boolean paused;
 
     public AnalyzerAgent(final String path, final String word) {
@@ -33,7 +33,7 @@ public final class AnalyzerAgent {
         final Flowable<String> source = Flowable.create(emitter -> new Thread(() -> {
             try (final Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
                 walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
-                    while(paused) {
+                    while (paused) {
                         try {
                             Thread.sleep(50);
                         } catch (InterruptedException e) {

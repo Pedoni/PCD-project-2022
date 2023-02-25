@@ -9,10 +9,6 @@ public final class Controller {
     private View view;
     private AnalyzerAgent analyzer;
 
-    public Controller() {
-
-    }
-
     public void setView(final View view) {
         this.view = view;
     }

@@ -47,7 +47,7 @@ public final class Model {
         new Thread(() -> {
             try (final Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
                 walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
-                    while(paused) {
+                    while (paused) {
                         try {
                             Thread.sleep(50);
                         } catch (InterruptedException e) {
@@ -59,7 +59,7 @@ public final class Model {
                         futures.add(executor.submit(new WordSearchTask(f, word)));
                     }
                 });
-            } catch (IOException e){
+            } catch (IOException e) {
                 throw new RuntimeException(e);
             }
             try {
