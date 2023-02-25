@@ -16,34 +16,47 @@ import java.util.stream.Stream;
 
 public final class Model {
 
+    private final List<Future<Integer>> futures = new ArrayList<>();
     private final String path;
     private final String word;
-    private final SharedData sd;
     private final View view;
     private int foundPdf = 0;
     private int analyzedPdf = 0;
     private int matchingPdf = 0;
-
     private boolean isAnalysisClosed = false;
+    private boolean paused = false;
 
-    public Model(final String path, final String word, final SharedData sd, final View view) {
+    public Model(final String path, final String word, final View view) {
         this.path = path;
         this.word = word;
-        this.sd = sd;
         this.view = view;
+    }
+
+    public void pauseSearch() {
+        this.paused = true;
+
+    }
+
+    public void resumeSearch() {
+        this.paused = false;
     }
 
     public void start() {
         final int nWorkers = Runtime.getRuntime().availableProcessors() + 1;
         final ExecutorService executor = Executors.newFixedThreadPool(nWorkers);
-        final List<Future<Integer>> futures = new ArrayList<>();
-
         new Thread(() -> {
             try (final Stream<Path> walkStream = Files.walk(Paths.get(this.path))) {
                 walkStream.filter(p -> p.toFile().isFile()).forEach(f -> {
+                    while(paused) {
+                        try {
+                            Thread.sleep(50);
+                        } catch (InterruptedException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
                     if (f.toString().endsWith("pdf")) {
                         foundPdf++;
-                        futures.add(executor.submit(new WordSearchTask(sd, f, word)));
+                        futures.add(executor.submit(new WordSearchTask(f, word)));
                     }
                 });
             } catch (IOException e){

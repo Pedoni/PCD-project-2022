@@ -1,35 +1,28 @@
 package tasks.controller;
 
 import tasks.model.Model;
-import tasks.model.SharedData;
 import tasks.view.View;
 
 public final class Controller {
 
-    private SharedData sd;
     private View view;
-
-    public Controller() {
-        this.sd = new SharedData();
-    }
+    private Model model;
 
     public void setView(final View view) {
         this.view = view;
     }
 
     public void notifyStarted(final String path, final String word) {
-        new Model(path, word, this.sd, this.view).start();
+        model = new Model(path, word, this.view);
+        model.start();
     }
 
     public void notifyPaused() {
-        this.sd.pauseSearch();
+        this.model.pauseSearch();
     }
 
     public void notifyResumed() {
-        this.sd.resumeSearch();
+        this.model.resumeSearch();
     }
 
-    public void resetData() {
-        this.sd = new SharedData();
-    }
 }

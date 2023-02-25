@@ -93,7 +93,7 @@ public final class GUI extends JFrame implements ActionListener {
             }
         } else if (src == start){
             this.data.setText("");
-            this.controller.resetData();
+            //this.controller.resetData();
             this.controller.notifyStarted(this.selectedDirPath, "Ricci");
             this.chooseDir.setEnabled(false);
             this.resume.setEnabled(false);
