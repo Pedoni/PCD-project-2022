@@ -17,6 +17,7 @@ public final class GUI extends JFrame implements ActionListener {
     private final JButton resume;
     private final JButton chooseDir;
     private final JTextField selectedDir;
+    private final JTextField wordTextField;
     private String selectedDirPath;
     private final JTextArea data;
 
@@ -38,6 +39,7 @@ public final class GUI extends JFrame implements ActionListener {
         this.pause.setEnabled(false);
         this.resume = new JButton("Resume");
         this.resume.setEnabled(false);
+        this.wordTextField = new JTextField();
 
         final Container cp = getContentPane();
         final JPanel panel = new JPanel();
@@ -48,11 +50,15 @@ public final class GUI extends JFrame implements ActionListener {
         p0.add(this.pause);
         p0.add(this.resume);
         final Box p1a = new Box(BoxLayout.X_AXIS);
+        final Box p1b = new Box(BoxLayout.X_AXIS);
         p1a.add(this.selectedDir);
+        p1b.add(this.wordTextField);
         final Box p1 = new Box(BoxLayout.X_AXIS);
         p1.add(this.data);
         final Box p2 = new Box(BoxLayout.Y_AXIS);
         p2.add(p0);
+        p2.add(Box.createVerticalStrut(10));
+        p2.add(p1b);
         p2.add(Box.createVerticalStrut(10));
         p2.add(p1a);
         p2.add(Box.createVerticalStrut(10));
@@ -93,19 +99,21 @@ public final class GUI extends JFrame implements ActionListener {
                 this.selectedDir.setText("..." + this.selectedDirPath.substring(this.selectedDirPath.length() - 20));
                 this.start.setEnabled(true);
             }
-        } else if (src == start){
-            this.data.setText("");
-            this.controller.resetData();
-            this.controller.notifyStarted(this.selectedDirPath, "Ricci");
-            this.chooseDir.setEnabled(false);
-            this.resume.setEnabled(false);
-            this.pause.setEnabled(true);
-            this.start.setEnabled(false);
-        } else if (src == pause){
+        } else if (src == start) {
+            if (!this.wordTextField.getText().isEmpty()) {
+                this.data.setText("");
+                this.controller.resetData();
+                this.controller.notifyStarted(this.selectedDirPath, this.wordTextField.getText());
+                this.chooseDir.setEnabled(false);
+                this.resume.setEnabled(false);
+                this.pause.setEnabled(true);
+                this.start.setEnabled(false);
+            }
+        } else if (src == pause) {
             this.controller.notifyPaused();
             this.pause.setEnabled(false);
             this.resume.setEnabled(true);
-        } else if (src == resume){
+        } else if (src == resume) {
             this.controller.notifyResumed();
             this.pause.setEnabled(true);
             this.resume.setEnabled(false);
