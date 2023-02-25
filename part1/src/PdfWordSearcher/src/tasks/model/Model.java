@@ -24,6 +24,8 @@ public final class Model {
     private int analyzedPdf = 0;
     private int matchingPdf = 0;
 
+    private boolean isAnalysisClosed = false;
+
     public Model(final String path, final String word, final SharedData sd, final View view) {
         this.path = path;
         this.word = word;
@@ -56,7 +58,7 @@ public final class Model {
                         throw new RuntimeException(e);
                     }
                 });
-                this.sd.closeAnalysis();
+                this.isAnalysisClosed = true;
                 executor.shutdown();
             } finally {
                 executor.shutdownNow();
@@ -64,7 +66,7 @@ public final class Model {
         }).start();
 
         new Thread(() -> {
-            while(!this.sd.isAnalysisClosed()) {
+            while(!this.isAnalysisClosed) {
                 try {
                     Thread.sleep(50);
                 } catch (InterruptedException e) {
