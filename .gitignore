@@ -28,6 +28,9 @@ hs_err_pid*
 build/*
 .gradle/*
 project/*
+project/target/*
+target/*
+.bsp/*
 
 
 # User-specific stuff
