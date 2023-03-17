@@ -13,3 +13,4 @@ object PuzzleDomain:
     case class PuzzleMessage(tiles: ListBuffer[SerializableTile])
     case class ApproveOrDenyCriticalSection(remoteAddress: String, timestamp: LocalDateTime)
     case class EnterInCriticalSectionApproved()
+    case class EnterInCriticalSectionNotApproved()

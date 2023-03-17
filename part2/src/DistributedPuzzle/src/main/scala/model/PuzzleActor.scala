@@ -21,6 +21,7 @@ class PuzzleActor(name: String, port: Int) extends Actor with ActorLogging:
     var actors: ListBuffer[String] = ListBuffer()
     var localTimestamp: Optional[LocalDateTime] = Optional.empty()
     var actorsOk: Int = 0
+    var actorsNotOk: Int = 0
 
     override def preStart(): Unit =
         cluster.subscribe(self, initialStateMode = InitialStateAsEvents, classOf[MemberEvent])
@@ -63,16 +64,20 @@ class PuzzleActor(name: String, port: Int) extends Actor with ActorLogging:
                 val remotePuzzleActorSelection = getPuzzleActor(remoteAddress)
                 remotePuzzleActorSelection ! EnterInCriticalSectionApproved()
             else // da aggiornare col caso negativo
-                getPuzzleActor(remoteAddress) ! EnterInCriticalSectionApproved()
+                getPuzzleActor(remoteAddress) ! EnterInCriticalSectionNotApproved()
         case EnterInCriticalSectionApproved() =>
             println("Ricevuta un'approvazione")
             this.actorsOk += 1
-            if (this.actorsOk == actors.size) {
+            if (this.actorsOk == actors.size)
                 this.actorsOk = 0
                 println("Ricevuti tutti gli ok, aggiorno")
                 this.localTimestamp = Optional.empty()
                 this.puzzle.modifyPuzzleOk()
-            }
+            else checkAllOkReceived()
+        case EnterInCriticalSectionNotApproved() =>
+            this.actorsNotOk += 1
+            this.localTimestamp = Optional.empty()
+            checkAllOkReceived()
         case TileSelected(currentPosition: Int) =>
             println(s"Chiamata TileSelected. Timestamp: ${LocalDateTime.now()}")
             println(s"Dopo? ${LocalDateTime.parse("2024-03-17T16:01:52.097362100").isAfter(LocalDateTime.now)}")
@@ -91,8 +96,13 @@ class PuzzleActor(name: String, port: Int) extends Actor with ActorLogging:
     def getPuzzleActor(memberAddress: String): ActorSelection =
         println(s"Member address: ${memberAddress}")
         context.actorSelection(s"$memberAddress/user/puzzleActor")
-        
+
     def getPort: Int = this.port
+
+    def checkAllOkReceived(): Unit =
+        if (this.actorsOk + this.actorsNotOk == actors.size)
+            this.actorsOk = 0
+            this.actorsNotOk = 0
 
     def sendSelection(currentPosition: Int): Unit =
         println("Chiamata sendSelection")
