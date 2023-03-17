@@ -7,6 +7,7 @@ import akka.cluster.ClusterEvent.{InitialStateAsEvents, MemberEvent, MemberRemov
 import GUI.{PuzzleBoard, SerializableTile, Tile}
 
 import java.awt.Image
+import java.time.LocalDateTime
 import scala.collection.mutable.ListBuffer
 
 object PuzzleActor:
@@ -50,7 +51,7 @@ class PuzzleActor(name: String, port: Int) extends Actor with ActorLogging:
             }
         case ChatMessage(remoteName, contents) => log.info(s"[$remoteName] $contents")
         case TileSelected(currentPosition: Int) =>
-            println("Chiamata TileSelected")
+            println(s"Chiamata TileSelected. Timestammp: ${LocalDateTime.now()}")
             val tile: Tile = this.puzzle.tiles.find(p => p.currentPosition == currentPosition).get
             puzzle.selectionManager.selectTile(tile, () => {
                 puzzle.repaintPuzzle()
