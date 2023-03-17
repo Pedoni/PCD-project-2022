@@ -27,6 +27,8 @@ hs_err_pid*
 .idea/*
 build/*
 .gradle/*
+project/*
+
 
 # User-specific stuff
 .idea/**/workspace.xml
@@ -40,6 +42,8 @@ build/*
 .idea/usage.statistics.xml
 .idea/dictionaries
 .idea/shelf
+.idea/modules/*
+
 
 # AWS User-specific
 .idea/**/aws.xml

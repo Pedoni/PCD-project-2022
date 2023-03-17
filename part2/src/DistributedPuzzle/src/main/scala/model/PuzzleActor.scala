@@ -41,8 +41,8 @@ class PuzzleActor(name: String, port: Int) extends Actor with ActorLogging:
                 log.info(s"$remoteName entered the room.")
                 context.become(online(puzzleRoom + (remoteAddress -> remoteName)))
                 getPuzzleActor(remoteAddress) ! PuzzleMessage(
-                    puzzle.tiles.map(t =>
-                        SerializableTile(t.originalPosition, t.currentPosition)))
+                    puzzle.tiles.map(t => SerializableTile(t.originalPosition, t.currentPosition))
+                )
             }
         case UserMessage(contents) =>
             puzzleRoom.keys.foreach { remoteAddressAsString =>

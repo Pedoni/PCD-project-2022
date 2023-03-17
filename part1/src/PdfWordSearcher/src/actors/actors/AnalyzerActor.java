@@ -70,7 +70,7 @@ public final class AnalyzerActor extends AbstractBehavior<SearchAnalyzeProtocol>
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        if(!isSearchPaused)
+        if (!isSearchPaused)
             message.analyzer().tell(new SearchAnalyzeProtocol.StepMessage(message.analyzer(), message.counter()));
         return this;
     }

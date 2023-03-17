@@ -27,7 +27,7 @@ public final class Controller {
         final ActorSystem<SearchAnalyzeProtocol> viewer =
                 ActorSystem.create(ViewerActor.create(view), "viewer");
 
-        counter = ActorSystem.create(CounterActor.create(viewer, null), "counter");
+        counter = ActorSystem.create(CounterActor.create(viewer), "counter");
 
         analyzer.tell(new SearchAnalyzeProtocol.BootMessage(analyzer, counter));
     }

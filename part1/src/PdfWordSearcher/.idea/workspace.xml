@@ -4,7 +4,54 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="Cambiato gitignore" />
+    <list default="true" id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="Aggiunta possibilità di scelta della parola nelle GUI">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actors/actors/AnalyzerActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actors/actors/AnalyzerActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actors/actors/CounterActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actors/actors/CounterActor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actors/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/actors/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actors/performance/Chrono.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actors/performance/PerformanceActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actors/performance/PerformanceMain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actors/performance/PerformanceProtocol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/events/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reactive/model/AnalyzerAgent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/reactive/model/AnalyzerAgent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/threads/controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/threads/controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/config-classes/$0e9595cb6774cf04cf88.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/config-classes/$4bf33def617f5673b821.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/config-classes/$655d080a50cdda5cd8eb.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/config-classes/$a12a23c84ec717fae4c9.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/config-classes/$b878bc251f98de95fe39.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/config-classes/$c5d4cb45afdc66545ec0.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/_global/update/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/_global/update/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/_global/_global/compileOutputs/previous" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/exportedProducts/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/incOptions/_global/streams/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/exportedProducts/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/exportedProducts/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/fullClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleActor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/PuzzleBoard.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/PuzzleBoard.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/SelectionManager.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/SelectionManager.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/SerializableTile.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/SerializableTile.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/Tile.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/Tile.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player1.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player1.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player2.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player2.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player3.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player3.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleActor.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleActor.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleApp.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleApp.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleDomain.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleDomain.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/update/update_cache_3/output" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/update/update_cache_3/output" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/streams/_global/updateClassifiers/_global/streams/update_cache_3/output" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/streams/_global/updateClassifiers/_global/streams/update_cache_3/output" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -58,23 +105,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/emala/Desktop/PCD/Progetto/Assignment-Single/part1/src/PdfWordSearcher",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/emala/Desktop/PCD/Progetto/Assignment-Single/part2/src/DistributedPuzzle&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="events" />
@@ -97,7 +144,7 @@
       <recent name="actors.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.threads.Main">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="actors.Main" />
       <module name="PdfWordSearcher.main" />
@@ -111,12 +158,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="events.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="events.Main" />
+    <configuration name="PerformanceMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="actors.performance.PerformanceMain" />
       <module name="PdfWordSearcher.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="events.*" />
+          <option name="PATTERN" value="actors.performance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -165,11 +212,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PerformanceMain" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.threads.Main" />
         <item itemvalue="Application.tasks.Main" />
         <item itemvalue="Application.reactive.Main" />
-        <item itemvalue="Application.events.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -192,7 +239,14 @@
       <workItem from="1675531121318" duration="1194000" />
       <workItem from="1677085867104" duration="2029000" />
       <workItem from="1677256736926" duration="191000" />
-      <workItem from="1677258398664" duration="1050000" />
+      <workItem from="1677258398664" duration="4069000" />
+      <workItem from="1677320124625" duration="2207000" />
+      <workItem from="1677330622379" duration="3322000" />
+      <workItem from="1677342572905" duration="7734000" />
+      <workItem from="1677602927760" duration="2402000" />
+      <workItem from="1677610238069" duration="12000" />
+      <workItem from="1677691117261" duration="1199000" />
+      <workItem from="1679061295590" duration="109000" />
     </task>
     <task id="LOCAL-00001" summary="Migliorata GUI generale">
       <created>1667925960874</created>
@@ -355,7 +409,91 @@
       <option name="project" value="LOCAL" />
       <updated>1677259441610</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Cambiato gitignore">
+      <created>1677259615087</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259615087</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Rimosso file">
+      <created>1677259633010</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259633010</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Rimosso file">
+      <created>1677259649068</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259649068</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Rimosso file">
+      <created>1677259731960</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259731960</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Creato task a parte">
+      <created>1677261296604</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1677261296604</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Spostate variabili counter dentro Model">
+      <created>1677262256710</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1677262256710</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Minor fixes">
+      <created>1677262484615</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1677262484615</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Rimosso masterRunning">
+      <created>1677320375718</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1677320375718</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Rimossa logica chiusura analisi da SharedData">
+      <created>1677320759289</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1677320759289</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Rimosso SharedData e riadattada app">
+      <created>1677321685728</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1677321685728</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Minor fixes">
+      <created>1677334301247</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1677334301247</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Aggiunta possibilità di scelta della parola nelle GUI">
+      <created>1677336139980</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1677336139980</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,8 +527,15 @@
     <MESSAGE value="Finito actors, iniziato ad aggiustare events" />
     <MESSAGE value="Finito events" />
     <MESSAGE value="Finita parte 1" />
-    <MESSAGE value="Minor fixes" />
     <MESSAGE value="Cambiato gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cambiato gitignore" />
+    <MESSAGE value="Rimosso file" />
+    <MESSAGE value="Creato task a parte" />
+    <MESSAGE value="Spostate variabili counter dentro Model" />
+    <MESSAGE value="Rimosso masterRunning" />
+    <MESSAGE value="Rimossa logica chiusura analisi da SharedData" />
+    <MESSAGE value="Rimosso SharedData e riadattada app" />
+    <MESSAGE value="Minor fixes" />
+    <MESSAGE value="Aggiunta possibilità di scelta della parola nelle GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta possibilità di scelta della parola nelle GUI" />
   </component>
 </project>

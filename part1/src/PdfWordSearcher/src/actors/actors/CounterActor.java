@@ -1,6 +1,5 @@
 package actors.actors;
 
-import actors.performance.PerformanceProtocol;
 import actors.protocols.CounterProtocol;
 import actors.protocols.SearchAnalyzeProtocol;
 import akka.actor.typed.ActorRef;
@@ -13,7 +12,6 @@ import akka.actor.typed.javadsl.Receive;
 public final class CounterActor extends AbstractBehavior<CounterProtocol> {
 
     private static ActorRef<SearchAnalyzeProtocol> viewer;
-    private static ActorRef<PerformanceProtocol> performer;
     private int found;
     private int matching;
     private int analyzed;
@@ -37,14 +35,9 @@ public final class CounterActor extends AbstractBehavior<CounterProtocol> {
                 .build();
     }
 
-    public static Behavior<CounterProtocol> create(
-        final ActorRef<SearchAnalyzeProtocol> viewer,
-        final ActorRef<PerformanceProtocol> performer
-    ) {
+    public static Behavior<CounterProtocol> create(final ActorRef<SearchAnalyzeProtocol> viewer) {
         if (viewer != null)
             CounterActor.viewer = viewer;
-        if (performer != null)
-            CounterActor.performer = performer;
         return Behaviors.setup(CounterActor::new);
     }
 
@@ -78,7 +71,6 @@ public final class CounterActor extends AbstractBehavior<CounterProtocol> {
                 viewer.tell(new SearchAnalyzeProtocol.ResetGuiMessage());
         }
         if (isStopping()) {
-            performer.tell(new PerformanceProtocol.KillMessage());
             return Behaviors.stopped();
         }
         return this;

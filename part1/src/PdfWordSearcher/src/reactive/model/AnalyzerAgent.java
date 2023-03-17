@@ -55,7 +55,7 @@ public final class AnalyzerAgent {
 
     private boolean searchInPdf(final String v) {
         try {
-            if(v != null) {
+            if (v != null) {
                 final File file = new File(v);
                 final PDDocument document = PDDocument.load(file);
                 final PDFTextStripper pdfStripper = new PDFTextStripper();

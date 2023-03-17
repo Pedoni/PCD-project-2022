@@ -13,7 +13,7 @@ public final class Controller {
     private final Vertx vertx;
 
     public Controller() {
-        this.vertx = Vertx.vertx(new VertxOptions().setWorkerPoolSize(Runtime.getRuntime().availableProcessors()));
+        this.vertx = Vertx.vertx(new VertxOptions().setWorkerPoolSize(Runtime.getRuntime().availableProcessors() + 1));
     }
 
     public EventBus getEventBus() {
@@ -36,7 +36,7 @@ public final class Controller {
     public void notifyResumed() {
         getEventBus().send("resume", true);
         Stream.iterate(0, n -> n + 1)
-                .limit(Runtime.getRuntime().availableProcessors())
+                .limit(Runtime.getRuntime().availableProcessors() + 1)
                 .forEach(x -> getEventBus().send("next", true));
     }
 

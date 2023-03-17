@@ -5,6 +5,7 @@ import threads.model.Monitor;
 import threads.model.Worker;
 import threads.view.View;
 
+import java.time.LocalDateTime;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -16,7 +17,8 @@ public final class Controller {
 
     public Controller() {
         this.sd = new Monitor();
-        this.nWorkers = Runtime.getRuntime().availableProcessors() + 1;
+        //this.nWorkers = Runtime.getRuntime().availableProcessors() + 1;
+        this.nWorkers = 10;
     }
 
     public void setView(final View view) {
@@ -24,9 +26,10 @@ public final class Controller {
     }
 
     public void notifyStarted(final String path, final String word) {
+        System.out.println("Ora: " + LocalDateTime.now());
         final BlockingQueue<String> queue = new LinkedBlockingQueue<>(this.nWorkers);
         new Master(this.sd, path, queue).start();
-        for(int i = 0; i < this.nWorkers; i++){
+        for (int i = 0; i < this.nWorkers; i++) {
             new Worker(this.sd, word, queue).start();
         }
         new Thread(() -> {
@@ -42,6 +45,7 @@ public final class Controller {
                         this.sd.getMatchingPdf()
                 );
             }
+            System.out.println("Ora: " + LocalDateTime.now());
             this.view.resetState();
         }).start();
     }
