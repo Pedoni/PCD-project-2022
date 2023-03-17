@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="Aggiunta possibilità di scelta della parola nelle GUI">
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors-build.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors-build.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/dependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/compile/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/project/target/streams/runtime/managedClasspath/_global/streams/export" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/src/main/scala/GUI/PuzzleBoard.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/src/main/scala/GUI/PuzzleBoard.scala" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleActor.scala" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleActor.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/PuzzleBoard.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/PuzzleBoard.tasty" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleActor.tasty" beforeDir="false" afterPath="$PROJECT_DIR$/../../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleActor.tasty" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,6 +214,7 @@
       <workItem from="1677691117261" duration="1199000" />
       <workItem from="1679061295590" duration="109000" />
       <workItem from="1679064385907" duration="27000" />
+      <workItem from="1679066298763" duration="18000" />
     </task>
     <task id="LOCAL-00001" summary="Migliorata GUI generale">
       <created>1667925960874</created>

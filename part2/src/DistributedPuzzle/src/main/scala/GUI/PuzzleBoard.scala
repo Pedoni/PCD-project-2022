@@ -2,16 +2,18 @@ package GUI
 
 import com.fasterxml.jackson.module.scala.deser.overrides.MutableList
 import model.PuzzleActor
+import model.PuzzleDomain.ApproveOrDenyCriticalSection
 
 import java.awt.event.{MouseAdapter, MouseEvent}
 import java.awt.image.{BufferedImage, CropImageFilter, FilteredImageSource}
 import java.awt.{BorderLayout, Color, GridLayout, Image}
 import java.io.{File, IOException}
+import java.time.LocalDateTime
 import java.util
 import java.util.stream.IntStream
-import java.util.{ArrayList, Collections}
+import java.util.{ArrayList, Collections, Optional}
 import javax.imageio.ImageIO
-import javax.swing.{BorderFactory, ImageIcon, JButton, JFrame, JOptionPane, JPanel, WindowConstants}
+import javax.swing.{BorderFactory, ImageIcon, JButton, JFrame, JOptionPane, JPanel, SwingUtilities, WindowConstants}
 import scala.:+
 import scala.collection.mutable.ListBuffer
 import scala.language.postfixOps
@@ -66,10 +68,28 @@ class PuzzleBoard(var rows: Int, var columns: Int, var imagePath: String, val ac
         this.tiles.foreach(tile => {
             val button: JButton = JButton(new ImageIcon(tile.getImage))
             button.addActionListener(_ => {
-                this.selectionManager.selectTile(tile, () => {
-                    paintPuzzle(board)
-                    checkSolution()
-                }, true)
+                SwingUtilities.invokeLater(
+                    () => {
+                        actor.localTimestamp = Optional.of(LocalDateTime.now())
+                        selectionManager.tileToBeSelected = tile
+                        val remoteAddress = s"${actor.self.path.address}@127.0.0.1:${actor.getPort}"
+                        println(s"Il mio indirizzo è $remoteAddress")
+                        actor.actors.foreach(a =>
+                            actor.getPuzzleActor(a) ! ApproveOrDenyCriticalSection(
+                                remoteAddress,
+                                actor.localTimestamp.get()
+                            )
+                        )
+                    }
+                )
+                /*
+                SwingUtilities.invokeLater(
+                    () => this.selectionManager.selectTile(tile, () => {
+                        paintPuzzle(board)
+                        checkSolution()
+                    }, true)
+                )
+                */
             })
             board.add(button)
         })
@@ -78,6 +98,14 @@ class PuzzleBoard(var rows: Int, var columns: Int, var imagePath: String, val ac
         
     def repaintPuzzle(): Unit =
         paintPuzzle(this.board)
+
+    def modifyPuzzleOk(): Unit =
+        SwingUtilities.invokeLater(
+            () => this.selectionManager.selectTile(this.selectionManager.tileToBeSelected, () => {
+                paintPuzzle(board)
+                checkSolution()
+            }, true)
+        )
 
     def checkSolution(): Unit =
         if (this.tiles.forall(tile => tile.isInRightPlace))

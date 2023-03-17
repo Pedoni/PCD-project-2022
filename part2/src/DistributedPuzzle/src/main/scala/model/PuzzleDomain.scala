@@ -2,6 +2,7 @@ package model
 
 import GUI.{PuzzleBoard, SerializableTile, Tile}
 
+import java.time.LocalDateTime
 import scala.collection.mutable.ListBuffer
 
 object PuzzleDomain:
@@ -10,3 +11,5 @@ object PuzzleDomain:
     case class EnterRoom(fullAddress: String, name: String)
     case class TileSelected(currentPosition: Int)
     case class PuzzleMessage(tiles: ListBuffer[SerializableTile])
+    case class ApproveOrDenyCriticalSection(remoteAddress: String, timestamp: LocalDateTime)
+    case class EnterInCriticalSectionApproved()

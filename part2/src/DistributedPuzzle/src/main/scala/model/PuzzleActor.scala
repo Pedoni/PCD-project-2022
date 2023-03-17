@@ -8,6 +8,7 @@ import GUI.{PuzzleBoard, SerializableTile, Tile}
 
 import java.awt.Image
 import java.time.LocalDateTime
+import java.util.Optional
 import scala.collection.mutable.ListBuffer
 
 object PuzzleActor:
@@ -18,6 +19,8 @@ class PuzzleActor(name: String, port: Int) extends Actor with ActorLogging:
     val cluster: Cluster = Cluster(context.system)
     var puzzle: PuzzleBoard = PuzzleBoard(3, 5, "src/main/resources/images/bletchley-park-mansion.jpg", this)
     var actors: ListBuffer[String] = ListBuffer()
+    var localTimestamp: Optional[LocalDateTime] = Optional.empty()
+    var actorsOk: Int = 0
 
     override def preStart(): Unit =
         cluster.subscribe(self, initialStateMode = InitialStateAsEvents, classOf[MemberEvent])
@@ -50,8 +53,29 @@ class PuzzleActor(name: String, port: Int) extends Actor with ActorLogging:
                 getPuzzleActor(remoteAddressAsString) ! ChatMessage(name, contents)
             }
         case ChatMessage(remoteName, contents) => log.info(s"[$remoteName] $contents")
+        case ApproveOrDenyCriticalSection(remoteAddress, remoteTimestamp) =>
+            println(s"Timestamp ricevuto: $remoteTimestamp")
+            println(s"Timestamp locale: $localTimestamp")
+            println(s"L'indirizzo dell'attore che mi ha mandato il messaggio è $remoteAddress")
+            if (localTimestamp.isEmpty ||
+                LocalDateTime.parse(localTimestamp.get().toString).isAfter(remoteTimestamp))
+                println("In teoria qui dovrebbe mandare il messaggio di approvazione")
+                val remotePuzzleActorSelection = getPuzzleActor(remoteAddress)
+                remotePuzzleActorSelection ! EnterInCriticalSectionApproved()
+            else // da aggiornare col caso negativo
+                getPuzzleActor(remoteAddress) ! EnterInCriticalSectionApproved()
+        case EnterInCriticalSectionApproved() =>
+            println("Ricevuta un'approvazione")
+            this.actorsOk += 1
+            if (this.actorsOk == actors.size) {
+                this.actorsOk = 0
+                println("Ricevuti tutti gli ok, aggiorno")
+                this.localTimestamp = Optional.empty()
+                this.puzzle.modifyPuzzleOk()
+            }
         case TileSelected(currentPosition: Int) =>
-            println(s"Chiamata TileSelected. Timestammp: ${LocalDateTime.now()}")
+            println(s"Chiamata TileSelected. Timestamp: ${LocalDateTime.now()}")
+            println(s"Dopo? ${LocalDateTime.parse("2024-03-17T16:01:52.097362100").isAfter(LocalDateTime.now)}")
             val tile: Tile = this.puzzle.tiles.find(p => p.currentPosition == currentPosition).get
             puzzle.selectionManager.selectTile(tile, () => {
                 puzzle.repaintPuzzle()
@@ -67,6 +91,8 @@ class PuzzleActor(name: String, port: Int) extends Actor with ActorLogging:
     def getPuzzleActor(memberAddress: String): ActorSelection =
         println(s"Member address: ${memberAddress}")
         context.actorSelection(s"$memberAddress/user/puzzleActor")
+        
+    def getPort: Int = this.port
 
     def sendSelection(currentPosition: Int): Unit =
         println("Chiamata sendSelection")

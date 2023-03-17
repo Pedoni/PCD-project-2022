@@ -14,6 +14,7 @@ class SelectionManager(val actor: PuzzleActor):
 
     var selectionActive: Boolean = false
     var selectedTile: Tile = null
+    var tileToBeSelected: Tile = null
     
     def selectTile(tile: Tile, listener: SelectionManager.Listener, toSend: Boolean): Unit =
         if (toSend)
