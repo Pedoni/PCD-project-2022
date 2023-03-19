@@ -1,17 +1,24 @@
 package org.example.puzzle;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class PuzzleServiceImpl implements PuzzleService {
 
-    final int n = 3;
-    final int m = 5;
-    final String imagePath = "src/main/java/org/example/puzzle/bletchley-park-mansion.jpg";
-    final PuzzleBoard puzzle = new PuzzleBoard(n, m, imagePath);
+    final private Map<Integer, List<SerializableTile>> tilesMap = new HashMap<>();
 
     @Override
-    public void showPuzzle() throws RemoteException {
-        this.puzzle.setVisible(true);
+    public List<SerializableTile> registerClient(int id, List<SerializableTile> tiles) throws RemoteException {
+        if (!tilesMap.isEmpty()) {
+            final List<SerializableTile> other = (List<SerializableTile>) tilesMap.values().toArray()[0];
+            tilesMap.put(id, other);
+            return other;
+        }
+        tilesMap.put(id, tiles);
+        return new ArrayList<>();
     }
 
 }

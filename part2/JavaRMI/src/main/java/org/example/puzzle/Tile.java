@@ -1,11 +1,10 @@
 package org.example.puzzle;
 
 import java.awt.Image;
-import java.io.Serializable;
 
-class Tile implements Comparable<Tile>, Serializable {
-	private Image image;
-	private int originalPosition;
+public class Tile implements Comparable<Tile> {
+	private final Image image;
+	private final int originalPosition;
 	private int currentPosition;
 
     public Tile(final Image image, final int originalPosition, final int currentPosition) {
@@ -13,7 +12,11 @@ class Tile implements Comparable<Tile>, Serializable {
         this.originalPosition = originalPosition;
         this.currentPosition = currentPosition;
     }
-    
+
+    public int getOriginalPosition() {
+        return originalPosition;
+    }
+
     public Image getImage() {
     	return image;
     }
@@ -32,7 +35,7 @@ class Tile implements Comparable<Tile>, Serializable {
 
 	@Override
 	public int compareTo(Tile other) {
-		return this.currentPosition < other.currentPosition ? -1 
+		return this.currentPosition < other.currentPosition ? -1
 				: (this.currentPosition == other.currentPosition ? 0 : 1);
 	}
 }

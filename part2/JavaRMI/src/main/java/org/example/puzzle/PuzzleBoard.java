@@ -16,33 +16,44 @@ import java.awt.image.FilteredImageSource;
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class PuzzleBoard extends JFrame implements Serializable {
-	
-	final int rows, columns;
-	private final List<Tile> tiles = new ArrayList<>();
-	
-	private final SelectionManager selectionManager = new SelectionManager();
-	
-    public PuzzleBoard(final int rows, final int columns, final String imagePath) {
+
+    private final int rows;
+    private final int columns;
+    private final JPanel board;
+	private List<Tile> tiles;
+	private final SelectionManager selectionManager;
+
+    public PuzzleBoard(
+        final int rows,
+        final int columns,
+        final String imagePath,
+        final List<Tile> tiles,
+        final SelectionManager selectionManager
+    ) {
     	this.rows = rows;
 		this.columns = columns;
+        this.tiles = tiles;
+        this.selectionManager = selectionManager;
     	
     	setTitle("Puzzle");
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        final JPanel board = new JPanel();
+        board = new JPanel();
         board.setBorder(BorderFactory.createLineBorder(Color.gray));
         board.setLayout(new GridLayout(rows, columns, 0, 0));
         getContentPane().add(board, BorderLayout.CENTER);
-        
+
         createTiles(imagePath);
-        paintPuzzle(board);
+        paintPuzzle();
     }
 
     
@@ -61,24 +72,26 @@ public class PuzzleBoard extends JFrame implements Serializable {
         int position = 0;
         
         final List<Integer> randomPositions = new ArrayList<>();
-        IntStream.range(0, rows*columns).forEach(item -> { randomPositions.add(item); }); 
+        IntStream.range(0, rows * columns).forEach(randomPositions::add);
         Collections.shuffle(randomPositions);
         
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
             	final Image imagePortion = createImage(new FilteredImageSource(image.getSource(),
-                        new CropImageFilter(j * imageWidth / columns, 
-                        					i * imageHeight / rows, 
-                        					(imageWidth / columns), 
-                        					imageHeight / rows)));
-
+                    new CropImageFilter(
+                        j * imageWidth / columns,
+                        i * imageHeight / rows,
+                        (imageWidth / columns),
+                        imageHeight / rows
+                    ))
+                );
                 tiles.add(new Tile(imagePortion, position, randomPositions.get(position)));
                 position++;
             }
         }
 	}
     
-    private void paintPuzzle(final JPanel board) {
+    private void paintPuzzle() {
     	board.removeAll();
     	
     	Collections.sort(tiles);
@@ -89,7 +102,7 @@ public class PuzzleBoard extends JFrame implements Serializable {
             btn.setBorder(BorderFactory.createLineBorder(Color.gray));
             btn.addActionListener(actionListener -> {
             	selectionManager.selectTile(tile, () -> {
-            		paintPuzzle(board);
+            		paintPuzzle();
                 	checkSolution();
             	});
             });
@@ -99,9 +112,24 @@ public class PuzzleBoard extends JFrame implements Serializable {
         setLocationRelativeTo(null);
     }
 
+    public void repaint() {
+        paintPuzzle();
+    }
+
     private void checkSolution() {
-    	if(tiles.stream().allMatch(Tile::isInRightPlace)) {
+    	if (tiles.stream().allMatch(Tile::isInRightPlace)) {
     		JOptionPane.showMessageDialog(this, "Puzzle Completed!", "", JOptionPane.INFORMATION_MESSAGE);
     	}
     }
+
+    public List<Tile> getTiles() {
+        return tiles;
+    }
+
+    public void setTiles(List<Tile> tiles) {
+        this.tiles = tiles;
+    }
+
+
+
 }
