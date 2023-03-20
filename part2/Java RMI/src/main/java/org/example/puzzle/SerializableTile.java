@@ -5,10 +5,12 @@ import java.io.Serializable;
 public class SerializableTile implements Serializable {
     private final int originalPosition;
     private int currentPosition;
+    private boolean selected;
 
-    public SerializableTile(final int originalPosition, final int currentPosition) {
+    public SerializableTile(final int originalPosition, final int currentPosition, boolean selected) {
         this.originalPosition = originalPosition;
         this.currentPosition = currentPosition;
+        this.selected = selected;
     }
 
     public int getOriginalPosition() {
@@ -25,6 +27,14 @@ public class SerializableTile implements Serializable {
 
     public void setCurrentPosition(final int newPosition) {
         currentPosition = newPosition;
+    }
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 
 }

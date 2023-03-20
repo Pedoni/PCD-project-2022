@@ -1,5 +1,7 @@
 package org.example.puzzle;
 
+import org.example.puzzle.server.PuzzleService;
+
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -20,7 +22,6 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class PuzzleBoard extends JFrame implements Serializable {
@@ -30,18 +31,21 @@ public class PuzzleBoard extends JFrame implements Serializable {
     private final JPanel board;
 	private List<Tile> tiles;
 	private final SelectionManager selectionManager;
+    private final PuzzleService ps;
 
     public PuzzleBoard(
         final int rows,
         final int columns,
         final String imagePath,
         final List<Tile> tiles,
-        final SelectionManager selectionManager
+        final SelectionManager selectionManager,
+        final PuzzleService ps
     ) {
     	this.rows = rows;
 		this.columns = columns;
         this.tiles = tiles;
         this.selectionManager = selectionManager;
+        this.ps = ps;
     	
     	setTitle("Puzzle");
         setResizable(false);
@@ -85,7 +89,7 @@ public class PuzzleBoard extends JFrame implements Serializable {
                         imageHeight / rows
                     ))
                 );
-                tiles.add(new Tile(imagePortion, position, randomPositions.get(position)));
+                tiles.add(new Tile(imagePortion, position, randomPositions.get(position), false));
                 position++;
             }
         }
@@ -100,11 +104,32 @@ public class PuzzleBoard extends JFrame implements Serializable {
     		final TileButton btn = new TileButton(tile);
             board.add(btn);
             btn.setBorder(BorderFactory.createLineBorder(Color.gray));
+            if (tile.isSelected()) {
+                btn.setBorder(BorderFactory.createLineBorder(Color.red));
+            }
             btn.addActionListener(actionListener -> {
-            	selectionManager.selectTile(tile, () -> {
+                System.out.println("Tile current position: " + tile.getCurrentPosition());
+                System.out.println("Tile original position: " + tile.getOriginalPosition());
+                System.out.println("Prima di swap: " + getTiles());
+            	selectionManager.selectTile(tiles, tile, () -> {
             		paintPuzzle();
                 	checkSolution();
             	});
+                System.out.println("Dopo swap: " + getTiles());
+                try {
+                    ps.updateTiles(
+                        this.tiles
+                            .stream()
+                            .map(t -> new SerializableTile(
+                                t.getOriginalPosition(),
+                                t.getCurrentPosition(),
+                                t.isSelected()
+                            ))
+                            .toList()
+                    );
+                } catch (RemoteException e) {
+                    throw new RuntimeException(e);
+                }
             });
     	});
     	
@@ -113,10 +138,11 @@ public class PuzzleBoard extends JFrame implements Serializable {
     }
 
     public void repaint() {
+        System.out.println("Chiamato repaint");
         paintPuzzle();
     }
 
-    private void checkSolution() {
+    public void checkSolution() {
     	if (tiles.stream().allMatch(Tile::isInRightPlace)) {
     		JOptionPane.showMessageDialog(this, "Puzzle Completed!", "", JOptionPane.INFORMATION_MESSAGE);
     	}

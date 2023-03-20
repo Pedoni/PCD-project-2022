@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="Aggiunta possibilità di scelta della parola nelle GUI">
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/actors/AnalyzerActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/actors/CounterActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/actors/SearcherActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/actors/ViewerActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/controller/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/protocols/CounterProtocol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/protocols/SearchAnalyzeProtocol.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/view/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/view/View.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/model/AnalyzerAgent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/view/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/view/View.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/model/AnalyzerAgent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/view/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/view/View.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/model/Model.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/model/WordSearchTask.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/view/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/view/View.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/controller/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/model/Master.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/model/Monitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/model/Worker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/view/GUI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/view/View.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Client/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Client/Client1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Client/Client2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/PuzzleBoard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/PuzzleService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/PuzzleServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/SelectionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/SerializableTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Tile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/TileButton.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/bletchley-park-mansion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.bsp/sbt.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__ch_qos_logback_logback_classic_1_4_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__ch_qos_logback_logback_core_1_4_5_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_annotations_2_13_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_core_2_13_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_databind_2_13_4_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_13_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_13_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_parameter_names_2_13_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_scala_3_2_13_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_hierynomus_asn_one_0_6_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_thoughtworks_paranamer_paranamer_2_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_actor_3_2_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_cluster_3_2_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_coordination_3_2_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_pki_3_2_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_protobuf_v3_3_2_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_remote_3_2_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_serialization_jackson_3_2_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_stream_3_2_7_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_config_1_4_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_ssl_config_core_3_0_6_1_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_agrona_agrona_1_16_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_lz4_lz4_java_1_8_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_reactivestreams_reactive_streams_1_0_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_scala_lang_modules_scala_java8_compat_3_1_0_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_scala_lang_scala3_library_3_3_1_3_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_scala_lang_scala_library_2_13_8_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_slf4j_slf4j_api_2_0_4_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors-build.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/sbt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/scala_compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/scala_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/build.sbt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/build.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/project/target/config-classes/$c3f27f9a6128b515c3eb.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$00e0f7f56e51bb1e55f9.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$0ec3c867218089f42478.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$461cd64c428f1efc9d92.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$761fdd3807fd241e6516.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$bc7c2103d3fdf63b3a0b.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$efae859f38087222fe15.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/sync/copy-resource" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/_global/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/_global/csrLogger/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/csrConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/csrProject/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/ivyConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/ivySbt/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/moduleSettings/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/projectDescriptors/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/scalaCompilerBridgeScope/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/update/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/_global/_global/discoveredMainClasses/data" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/bspReporter/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/compile/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/compileIncremental/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/compileIncremental/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/copyResources/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/exportedProducts/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/internalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/internalDependencyClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/scalacOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/exportedProducts/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/internalDependencyClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/resources/application.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/resources/images/bletchley-park-mansion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/GUI/PuzzleBoard.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/GUI/SelectionManager.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/GUI/SerializableTile.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/GUI/Tile.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/TestApp.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleActor.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleApp.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleDomain.scala" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/.history3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/PuzzleBoard.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/SelectionManager.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/SerializableTile.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/Tile.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player1.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player2.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player3.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/application.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/images/bletchley-park-mansion.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleActor.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleApp.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleDomain.tasty" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/update/update_cache_3/inputs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/update/update_cache_3/output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/_global/csrLogger/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/_global/dumpStructure/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/csrConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/csrProject/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/input_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/ivyConfiguration/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/ivySbt/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/moduleSettings/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/projectDescriptors/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/update/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/updateClassifiers/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/updateClassifiers/_global/streams/update_cache_3/inputs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/updateClassifiers/_global/streams/update_cache_3/output" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/scalacOptions/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/unmanagedJars/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/managedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/unmanagedClasspath/_global/streams/export" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/unmanagedClasspath/_global/streams/out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/unmanagedJars/_global/streams/export" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectId" id="2H6CYPviqUkWi4WxjsPziIweUte" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/emala/Desktop/PCD/Progetto/Assignment-Single/part1/PdfWordSearcher",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="events" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\events2" />
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\threads_no_gui" />
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src" />
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\actors" />
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\reactive" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\emala\Desktop\PCD\Progetto\Assignment-Single\part1\src\PdfWordSearcher\src\events" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="events.controller" />
+      <recent name="actors.controller" />
+      <recent name="threads" />
+      <recent name="actors.model.controller" />
+      <recent name="actors.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="actors.Main" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="actors.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PerformanceMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="actors.performance.PerformanceMain" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="actors.performance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="reactive.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="reactive.Main" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="reactive.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="tasks.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tasks.Main" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="tasks.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="threads.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="threads.Main" />
+      <module name="PdfWordSearcher.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="threads.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.PerformanceMain" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.threads.Main" />
+        <item itemvalue="Application.tasks.Main" />
+        <item itemvalue="Application.reactive.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="" />
+      <created>1667596198446</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1667596198446</updated>
+      <workItem from="1669324053156" duration="68000" />
+      <workItem from="1669325793420" duration="140000" />
+      <workItem from="1669557714323" duration="80000" />
+      <workItem from="1670439779195" duration="357000" />
+      <workItem from="1670440423630" duration="693000" />
+      <workItem from="1670500438096" duration="1233000" />
+      <workItem from="1671984018503" duration="1300000" />
+      <workItem from="1673968302649" duration="45000" />
+      <workItem from="1675531121318" duration="1194000" />
+      <workItem from="1677085867104" duration="2029000" />
+      <workItem from="1677256736926" duration="191000" />
+      <workItem from="1677258398664" duration="4069000" />
+      <workItem from="1677320124625" duration="2207000" />
+      <workItem from="1677330622379" duration="3322000" />
+      <workItem from="1677342572905" duration="7734000" />
+      <workItem from="1677602927760" duration="2402000" />
+      <workItem from="1677610238069" duration="12000" />
+      <workItem from="1677691117261" duration="1199000" />
+      <workItem from="1679061295590" duration="109000" />
+      <workItem from="1679064385907" duration="27000" />
+      <workItem from="1679066298763" duration="18000" />
+      <workItem from="1679349647058" duration="16000" />
+    </task>
+    <task id="LOCAL-00001" summary="Migliorata GUI generale">
+      <created>1667925960874</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1667925960874</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Finita parte 1 (threads) con gui">
+      <created>1667938756392</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667938756392</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Finiti executors e aggiunte parti Vert.x e RX">
+      <created>1668031260077</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1668031260077</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Prima versione ad attori">
+      <created>1668165638323</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1668165638323</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Completata versione attori, tranne pause/resume">
+      <created>1668203706464</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1668203706464</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Aggiunto reset e pause/resume in actors, events e reactive&#10;&#10;Inoltre aggiunta anche base per parte 2 (programmazione distribuita)">
+      <created>1668261510526</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668261510526</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Fixato events">
+      <created>1668349650989</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668349650989</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Cambiato controller in events">
+      <created>1668349691701</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668349691701</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Migliorato events">
+      <created>1668375068226</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668375068226</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Migliorie generali">
+      <created>1668450138793</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1668450138793</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Migliorata versioni con thread, vertx e rx">
+      <created>1668464088028</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1668464088028</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Fixato threads con BlockingQueue funzionante">
+      <created>1668542589681</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668542589681</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Fixato events">
+      <created>1668549779282</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668549779282</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Aggiunto executeblocking a events">
+      <created>1668762698696</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668762698696</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Finito actors, iniziato ad aggiustare events">
+      <created>1669068707221</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1669068707221</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Finito events">
+      <created>1669142219390</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1669142219390</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Finita parte 1">
+      <created>1669310353869</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669310353869</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Minor fixes">
+      <created>1677087578191</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1677087578191</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Cambiato gitignore">
+      <created>1677258571159</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1677258571159</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Cambiato gitignore">
+      <created>1677258794733</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1677258794733</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Cambiato gitignore">
+      <created>1677259130859</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259130859</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Cambiato gitignore">
+      <created>1677259417271</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259417271</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Cambiato gitignore">
+      <created>1677259441610</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259441610</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Cambiato gitignore">
+      <created>1677259615087</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259615087</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Rimosso file">
+      <created>1677259633010</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259633010</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Rimosso file">
+      <created>1677259649068</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259649068</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Rimosso file">
+      <created>1677259731960</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1677259731960</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Creato task a parte">
+      <created>1677261296604</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1677261296604</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Spostate variabili counter dentro Model">
+      <created>1677262256710</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1677262256710</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Minor fixes">
+      <created>1677262484615</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1677262484615</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Rimosso masterRunning">
+      <created>1677320375718</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1677320375718</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Rimossa logica chiusura analisi da SharedData">
+      <created>1677320759289</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1677320759289</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Rimosso SharedData e riadattada app">
+      <created>1677321685728</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1677321685728</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Minor fixes">
+      <created>1677334301247</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1677334301247</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Aggiunta possibilità di scelta della parola nelle GUI">
+      <created>1677336139980</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1677336139980</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Migliorata GUI generale" />
+    <MESSAGE value="Finita parte 1 (threads) con gui" />
+    <MESSAGE value="Finiti executors e aggiunte parti Vert.x e RX" />
+    <MESSAGE value="Prima versione ad attori" />
+    <MESSAGE value="Completata versione attori, tranne pause/resume" />
+    <MESSAGE value="Aggiunto reset e pause/resume in actors, events e reactive&#10;&#10;Inoltre aggiunta anche base per parte 2 (programmazione distribuita)" />
+    <MESSAGE value="Cambiato controller in events" />
+    <MESSAGE value="Migliorato events" />
+    <MESSAGE value="Migliorie generali" />
+    <MESSAGE value="Migliorata versioni con thread, vertx e rx" />
+    <MESSAGE value="Fixato threads con BlockingQueue funzionante" />
+    <MESSAGE value="Fixato events" />
+    <MESSAGE value="Aggiunto executeblocking a events" />
+    <MESSAGE value="Finito actors, iniziato ad aggiustare events" />
+    <MESSAGE value="Finito events" />
+    <MESSAGE value="Finita parte 1" />
+    <MESSAGE value="Cambiato gitignore" />
+    <MESSAGE value="Rimosso file" />
+    <MESSAGE value="Creato task a parte" />
+    <MESSAGE value="Spostate variabili counter dentro Model" />
+    <MESSAGE value="Rimosso masterRunning" />
+    <MESSAGE value="Rimossa logica chiusura analisi da SharedData" />
+    <MESSAGE value="Rimosso SharedData e riadattada app" />
+    <MESSAGE value="Minor fixes" />
+    <MESSAGE value="Aggiunta possibilità di scelta della parola nelle GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta possibilità di scelta della parola nelle GUI" />
+  </component>
+</project>
