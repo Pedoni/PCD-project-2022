@@ -1,8 +1,10 @@
-package org.example.puzzle.server;
+package org.example.puzzle.utils;
 
 import org.example.puzzle.client.GeneralClientIF;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
     public String name;
     public GeneralClientIF client;

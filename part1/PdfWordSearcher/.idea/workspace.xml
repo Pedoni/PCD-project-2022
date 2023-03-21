@@ -4,228 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="Aggiunta possibilità di scelta della parola nelle GUI">
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/actors/AnalyzerActor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/actors/CounterActor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/actors/SearcherActor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/actors/ViewerActor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/controller/Data.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/protocols/CounterProtocol.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/protocols/SearchAnalyzeProtocol.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/view/GUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/actors/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/model/AnalyzerAgent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/view/GUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/events/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/model/AnalyzerAgent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/view/GUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/reactive/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/model/Model.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/model/WordSearchTask.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/view/GUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/tasks/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/controller/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/model/Master.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/model/Monitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/model/Worker.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/view/GUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../src/PdfWordSearcher/src/threads/view/View.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/gradle.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Client/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Client/Client1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Client/Client2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/PuzzleBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/PuzzleService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/PuzzleServiceImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/SelectionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/SerializableTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/Tile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/TileButton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/JavaRMI/src/main/java/org/example/puzzle/bletchley-park-mansion.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.bsp/sbt.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__ch_qos_logback_logback_classic_1_4_5_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__ch_qos_logback_logback_core_1_4_5_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_annotations_2_13_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_core_2_13_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_core_jackson_databind_2_13_4_2_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_dataformat_jackson_dataformat_cbor_2_13_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_13_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_13_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_parameter_names_2_13_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_fasterxml_jackson_module_jackson_module_scala_3_2_13_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_hierynomus_asn_one_0_6_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_thoughtworks_paranamer_paranamer_2_8_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_actor_3_2_7_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_cluster_3_2_7_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_coordination_3_2_7_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_pki_3_2_7_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_protobuf_v3_3_2_7_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_remote_3_2_7_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_serialization_jackson_3_2_7_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_akka_akka_stream_3_2_7_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_config_1_4_2_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__com_typesafe_ssl_config_core_3_0_6_1_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_agrona_agrona_1_16_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_lz4_lz4_java_1_8_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_reactivestreams_reactive_streams_1_0_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_scala_lang_modules_scala_java8_compat_3_1_0_0_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_scala_lang_scala3_library_3_3_1_3_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_scala_lang_scala_library_2_13_8_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/libraries/sbt__org_slf4j_slf4j_api_2_0_4_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors-build.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/modules/DistributedPuzzle_Actors.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/sbt.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/scala_compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/scala_settings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/build.sbt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/build.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/project/target/config-classes/$c3f27f9a6128b515c3eb.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$00e0f7f56e51bb1e55f9.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$0ec3c867218089f42478.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$461cd64c428f1efc9d92.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$761fdd3807fd241e6516.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$bc7c2103d3fdf63b3a0b.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/config-classes/$efae859f38087222fe15.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/sync/copy-resource" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/inputs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/scala-2.12/sbt-1.0/update/update_cache_2.12/output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/_global/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/_global/csrLogger/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/csrConfiguration/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/csrProject/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/input_dsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/dependencyPositions/_global/streams/update_cache_2.12/output_dsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/ivyConfiguration/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/ivySbt/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/moduleSettings/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/projectDescriptors/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/scalaCompilerBridgeScope/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/_global/update/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/_global/_global/compileOutputs/previous" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/_global/_global/discoveredMainClasses/data" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/bspReporter/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/compile/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/compileIncremental/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/compileIncremental/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/copyResources/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/dependencyClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/exportedProducts/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/incOptions/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/internalDependencyClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/internalDependencyClasspath/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/scalacOptions/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/unmanagedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/unmanagedClasspath/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/compile/unmanagedJars/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/dependencyClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/exportedProducts/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/fullClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/internalDependencyClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/internalDependencyClasspath/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/unmanagedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/unmanagedClasspath/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/project/target/streams/runtime/unmanagedJars/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/resources/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/resources/images/bletchley-park-mansion.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/GUI/PuzzleBoard.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/GUI/SelectionManager.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/GUI/SerializableTile.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/GUI/Tile.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/TestApp.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleActor.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleApp.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/src/main/scala/model/PuzzleDomain.scala" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/.history3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/PuzzleBoard.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/SelectionManager.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/SerializableTile.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/GUI/Tile.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player1.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player2.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/Player3.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/application.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/images/bletchley-park-mansion.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleActor.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleApp.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/classes/model/PuzzleDomain.tasty" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/update/update_cache_3/inputs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/scala-3.1.0/update/update_cache_3/output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/_global/csrLogger/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/_global/dumpStructure/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/csrConfiguration/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/csrProject/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/input_dsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/dependencyPositions/_global/streams/update_cache_3/output_dsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/ivyConfiguration/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/ivySbt/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/moduleSettings/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/projectDescriptors/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/update/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/updateClassifiers/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/updateClassifiers/_global/streams/update_cache_3/inputs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/_global/updateClassifiers/_global/streams/update_cache_3/output" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/managedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/scalacOptions/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/unmanagedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/unmanagedClasspath/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/compile/unmanagedJars/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/managedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/unmanagedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/unmanagedClasspath/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/runtime/unmanagedJars/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/externalDependencyClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/managedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/unmanagedClasspath/_global/streams/export" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/unmanagedClasspath/_global/streams/out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../part2/src/DistributedPuzzle/target/streams/test/unmanagedJars/_global/streams/export" beforeDir="false" />
+    <list default="true" id="09d68d69-16e2-48b4-a324-cb6d6d349980" name="Changes" comment="Cambiata struttura progetto">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,7 +69,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/emala/Desktop/PCD/Progetto/Assignment-Single/part1/PdfWordSearcher",
+    "last_opened_file_path": "C:/Users/emala/Desktop/PCD/Progetto/Assignment-Single/part2/Akka Cluster",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -319,7 +99,7 @@
       <recent name="actors.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.threads.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="actors.Main" />
       <module name="PdfWordSearcher.main" />
@@ -424,7 +204,7 @@
       <workItem from="1679061295590" duration="109000" />
       <workItem from="1679064385907" duration="27000" />
       <workItem from="1679066298763" duration="18000" />
-      <workItem from="1679349647058" duration="16000" />
+      <workItem from="1679349647058" duration="102000" />
     </task>
     <task id="LOCAL-00001" summary="Migliorata GUI generale">
       <created>1667925960874</created>
@@ -671,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677336139980</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Cambiata struttura progetto">
+      <created>1679349689762</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1679349689762</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -689,7 +476,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Migliorata GUI generale" />
     <MESSAGE value="Finita parte 1 (threads) con gui" />
     <MESSAGE value="Finiti executors e aggiunte parti Vert.x e RX" />
     <MESSAGE value="Prima versione ad attori" />
@@ -714,6 +500,7 @@
     <MESSAGE value="Rimosso SharedData e riadattada app" />
     <MESSAGE value="Minor fixes" />
     <MESSAGE value="Aggiunta possibilità di scelta della parola nelle GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunta possibilità di scelta della parola nelle GUI" />
+    <MESSAGE value="Cambiata struttura progetto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cambiata struttura progetto" />
   </component>
 </project>

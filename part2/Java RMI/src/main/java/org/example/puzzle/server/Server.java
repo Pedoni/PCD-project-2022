@@ -2,19 +2,21 @@ package org.example.puzzle.server;
 
 import org.example.puzzle.SerializableTile;
 import org.example.puzzle.client.GeneralClientIF;
+import org.example.puzzle.utils.Pair;
+import org.example.puzzle.utils.User;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.*;
 
 public class Server extends UnicastRemoteObject implements PuzzleService {
 
-	final private Map<User, List<SerializableTile>> tilesMap = new HashMap<>();
+	private List<SerializableTile> tileList = new ArrayList<>();
+	final private List<User> userList = new ArrayList<>();
 
 	public Server() throws RemoteException {
 		super();
@@ -47,31 +49,34 @@ public class Server extends UnicastRemoteObject implements PuzzleService {
 	}
 
 	@Override
-	public List<SerializableTile> registerClient(String[] details, List<SerializableTile> tiles) throws RemoteException {
+	public Pair<List<User>, List<SerializableTile>> registerClient(String[] details, List<SerializableTile> tiles) throws RemoteException {
 		GeneralClientIF nextClient;
 		try {
 			nextClient = (GeneralClientIF) Naming.lookup("rmi://" + details[1] + "/" + details[2]);
 		} catch (NotBoundException | MalformedURLException e) {
 			throw new RuntimeException(e);
 		}
-		if (!tilesMap.isEmpty()) {
-			final List<SerializableTile> other = (List<SerializableTile>) tilesMap.values().toArray()[0];
-			tilesMap.put(new User(details[0], nextClient), other);
-			return other;
+		if (!userList.isEmpty()) {
+			Pair<List<User>, List<SerializableTile>> pair = new Pair<>(userList, tileList);
+			User u = new User(details[0], nextClient);
+			sendToAll(u);
+			userList.add(u);
+			return pair;
 		}
-		tilesMap.put(new User(details[0], nextClient), tiles);
-		return new ArrayList<>();
+		tileList = tiles;
+		userList.add(new User(details[0], nextClient));
+		return new Pair<>(null, null);
 	}
 
 	@Override
-	public void updateTiles(List<SerializableTile> tiles) throws RemoteException {
-		sendToAll(tiles);
+	public void refreshMap(List<SerializableTile> tiles) {
+		this.tileList = tiles;
 	}
 
-	private void sendToAll(List<SerializableTile> tiles) {
-		for (User u : tilesMap.keySet()) {
+	private void sendToAll(User newUser) {
+		for (User u : userList) {
 			try {
-				u.getClient().messageFromServer(tiles);
+				u.getClient().registerNewUser(newUser);
 			}
 			catch (RemoteException e) {
 				e.printStackTrace();
@@ -80,4 +85,3 @@ public class Server extends UnicastRemoteObject implements PuzzleService {
 	}
 
 }
-// mappa non serve davvero

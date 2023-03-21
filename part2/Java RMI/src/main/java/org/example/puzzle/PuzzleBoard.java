@@ -1,6 +1,7 @@
 package org.example.puzzle;
 
 import org.example.puzzle.server.PuzzleService;
+import org.example.puzzle.utils.User;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
@@ -31,7 +32,8 @@ public class PuzzleBoard extends JFrame implements Serializable {
     private final JPanel board;
 	private List<Tile> tiles;
 	private final SelectionManager selectionManager;
-    private final PuzzleService ps;
+    List<User> userList;
+    PuzzleService ps;
 
     public PuzzleBoard(
         final int rows,
@@ -39,12 +41,14 @@ public class PuzzleBoard extends JFrame implements Serializable {
         final String imagePath,
         final List<Tile> tiles,
         final SelectionManager selectionManager,
+        final List<User> userList,
         final PuzzleService ps
     ) {
     	this.rows = rows;
 		this.columns = columns;
         this.tiles = tiles;
         this.selectionManager = selectionManager;
+        this.userList = userList;
         this.ps = ps;
     	
     	setTitle("Puzzle");
@@ -108,31 +112,34 @@ public class PuzzleBoard extends JFrame implements Serializable {
                 btn.setBorder(BorderFactory.createLineBorder(Color.red));
             }
             btn.addActionListener(actionListener -> {
-                System.out.println("Tile current position: " + tile.getCurrentPosition());
-                System.out.println("Tile original position: " + tile.getOriginalPosition());
-                System.out.println("Prima di swap: " + getTiles());
             	selectionManager.selectTile(tiles, tile, () -> {
             		paintPuzzle();
                 	checkSolution();
             	});
-                System.out.println("Dopo swap: " + getTiles());
+                List<SerializableTile> sList = this.tiles
+                    .stream()
+                    .map(t -> new SerializableTile(
+                            t.getOriginalPosition(),
+                            t.getCurrentPosition(),
+                            t.isSelected()
+                    ))
+                    .toList();
                 try {
-                    ps.updateTiles(
-                        this.tiles
-                            .stream()
-                            .map(t -> new SerializableTile(
-                                t.getOriginalPosition(),
-                                t.getCurrentPosition(),
-                                t.isSelected()
-                            ))
-                            .toList()
-                    );
+                    ps.refreshMap(sList);
                 } catch (RemoteException e) {
                     throw new RuntimeException(e);
                 }
+                userList.forEach(
+                    user -> {
+                        try {
+                            user.getClient().message(sList);
+                        } catch (RemoteException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                );
             });
     	});
-    	
     	pack();
         setLocationRelativeTo(null);
     }

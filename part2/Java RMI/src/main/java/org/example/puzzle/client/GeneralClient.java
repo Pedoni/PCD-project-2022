@@ -2,18 +2,17 @@ package org.example.puzzle.client;
 
 import org.example.puzzle.*;
 import org.example.puzzle.server.PuzzleService;
+import org.example.puzzle.utils.Pair;
+import org.example.puzzle.utils.User;
 
-import javax.swing.*;
 import java.net.MalformedURLException;
-import java.rmi.ConnectException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
-import java.rmi.registry.LocateRegistry;
-import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class GeneralClient extends UnicastRemoteObject implements GeneralClientIF  {
 
@@ -24,10 +23,13 @@ public class GeneralClient extends UnicastRemoteObject implements GeneralClientI
     private PuzzleService ps;
     PuzzleBoard pb;
 
+    final private List<User> userList;
+
     public GeneralClient(final String name) throws RemoteException {
         super();
         this.name = name;
         this.clientServiceName = "ClientListenService_" + name;
+        this.userList = new ArrayList<>();
     }
 
     public void start() {
@@ -39,7 +41,7 @@ public class GeneralClient extends UnicastRemoteObject implements GeneralClientI
             e.printStackTrace();
         }
         String imagePath = "src/main/java/org/example/puzzle/bletchley-park-mansion.jpg";
-        this.pb = new PuzzleBoard(3, 5, imagePath, new ArrayList<>(), new SelectionManager(), ps);
+        this.pb = new PuzzleBoard(3, 5, imagePath, new ArrayList<>(), new SelectionManager(), userList, ps);
         List<SerializableTile> stl = pb
                 .getTiles()
                 .stream()
@@ -49,22 +51,24 @@ public class GeneralClient extends UnicastRemoteObject implements GeneralClientI
                     t.isSelected()
                 ))
                 .toList();
-        List<SerializableTile> response = registerWithServer(details, stl);
+        Pair<List<User>, List<SerializableTile>> response = registerWithServer(details, stl);
         if (!response.isEmpty()) {
-            List<Tile> tiles = response
-                    .stream()
-                    .map(t -> new Tile(
-                        pb.getTiles()
-                            .stream()
-                            .filter(p -> t.getOriginalPosition() == p.getOriginalPosition())
-                            .findAny()
-                            .get()
-                            .getImage(),
-                        t.getOriginalPosition(),
-                        t.getCurrentPosition(),
-                        t.isSelected()
-                    ))
-                    .toList();
+            userList.addAll(response.getA());
+            List<SerializableTile> sTiles = response.getB();
+            List<Tile> tiles = sTiles
+                .stream()
+                .map(t -> new Tile(
+                    pb.getTiles()
+                        .stream()
+                        .filter(p -> t.getOriginalPosition() == p.getOriginalPosition())
+                        .findAny()
+                        .get()
+                        .getImage(),
+                    t.getOriginalPosition(),
+                    t.getCurrentPosition(),
+                    t.isSelected()
+                ))
+                .toList();
             pb.setTiles(new ArrayList<>(tiles));
         }
         pb.repaint();
@@ -72,8 +76,8 @@ public class GeneralClient extends UnicastRemoteObject implements GeneralClientI
 
     }
 
-    public List<SerializableTile> registerWithServer(String[] details, List<SerializableTile> stl) {
-        List<SerializableTile> response = null;
+    public Pair<List<User>, List<SerializableTile>> registerWithServer(String[] details, List<SerializableTile> stl) {
+        Pair<List<User>, List<SerializableTile>> response = null;
         try {
             response = ps.registerClient(details, stl);
         } catch(Exception e) {
@@ -83,26 +87,31 @@ public class GeneralClient extends UnicastRemoteObject implements GeneralClientI
     }
 
     @Override
-    public void messageFromServer(List<SerializableTile> tiles) throws RemoteException {
+    public void message(List<SerializableTile> tiles) throws RemoteException {
         List<Tile> ts = tiles
             .stream()
             .map(t -> new Tile(
-                    pb.getTiles()
-                            .stream()
-                            .filter(p -> t.getOriginalPosition() == p.getOriginalPosition())
-                            .findAny()
-                            .get()
-                            .getImage(),
-                    t.getOriginalPosition(),
-                    t.getCurrentPosition(),
-                    t.isSelected()
+                pb.getTiles()
+                    .stream()
+                    .filter(p -> t.getOriginalPosition() == p.getOriginalPosition())
+                    .findAny()
+                    .get()
+                    .getImage(),
+                t.getOriginalPosition(),
+                t.getCurrentPosition(),
+                t.isSelected()
             ))
             .toList();
-        System.out.println("Lista TS: " + ts);
-        System.out.println("Mia lista: " + this.pb.getTiles());
         this.pb.setTiles(new ArrayList<>(ts));
         this.pb.repaint();
         this.pb.checkSolution();
+    }
+
+    @Override
+    public void registerNewUser(User newUser) throws RemoteException {
+        if (!newUser.getName().equals(name)) {
+            userList.add(newUser);
+        }
     }
 
 }

@@ -7,9 +7,7 @@ public class SelectionManager implements Serializable {
 
 	private Tile selectedTile;
 
-	public SelectionManager() {
-
-	}
+	public SelectionManager() {}
 
 	public void selectTile(List<Tile> tiles, final Tile tile, final Listener listener) {
 		Tile tl = tiles
