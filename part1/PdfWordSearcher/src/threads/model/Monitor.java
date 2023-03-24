@@ -63,7 +63,7 @@ public final class Monitor {
     }
 
     public synchronized void checkPaused() {
-        if(this.isSearchPaused()){
+        while (this.isSearchPaused()){
             try {
                 wait();
             } catch (InterruptedException e) {
